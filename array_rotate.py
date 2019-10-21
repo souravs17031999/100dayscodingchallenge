@@ -22,7 +22,7 @@ def reverse_rotate(l, k):
 
     '''
     n = len(l)
-    k = k % n
+    k = k % n  # if k goes out of range of list, then wrap it inside the range
     reverse(l, 0, k-1)  # reverse first half of array
     reverse(l, k, n-1)  # reverse last half of array
     reverse(l, 0, n-1)  # reverse overall array
