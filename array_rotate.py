@@ -22,6 +22,7 @@ def reverse_rotate(l, k):
 
     '''
     n = len(l)
+    k = k % n
     reverse(l, 0, k-1)  # reverse first half of array
     reverse(l, k, n-1)  # reverse last half of array
     reverse(l, 0, n-1)  # reverse overall array
@@ -31,12 +32,12 @@ def reverse_rotate(l, k):
 '''
 # second method using temporary array
 def left_rotate_temp(l, k):
-    '''
+
     parameters :
     l - list of elements
     k - number by which array is rotated
 
-    '''
+
     temp = []
     n = len(l)
     # first we shift all k elements in a temporary array
@@ -61,12 +62,9 @@ def main_rotate(l, k):
     k - number by which array is rotated
 
     '''
-    l1 = l.copy()
     print(f"Original list: {l}")
-    #print("Modified list after rotation using temp array :")
-    #left_rotate_temp(l, k)
     print(f"Modified list rotate : ")
-    reverse_rotate(l1, k)
+    reverse_rotate(l, k)
 
 if __name__ == "__main__":
     print("Give the elements of the original list followed by number of rotations : ")
