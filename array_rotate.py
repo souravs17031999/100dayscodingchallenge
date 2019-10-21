@@ -14,7 +14,7 @@ def reverse(l, start, end):
         start += 1
         end -= 1
 
-def reverse_rotate(l, k):
+def left_rotate_reverse(l, k):
     '''
     parameters :
     l - list of elements
@@ -55,6 +55,21 @@ def left_rotate_temp(l, k):
         j += 1
     print(l)
 '''
+'''
+# for right rotation , reversing from back side
+
+
+def rotate_right_reverse(l, k):
+	setting the pivot point from back side 
+    n = len(l)
+    k = k % n
+    reverse(l, 0, n - k - 1)
+    reverse(l, n - k, n - 1)
+    reverse(l, 0, n - 1)
+    print(l)
+
+
+'''
 def main_rotate(l, k):
     '''
     parameters :
@@ -64,7 +79,7 @@ def main_rotate(l, k):
     '''
     print(f"Original list: {l}")
     print(f"Modified list rotate : ")
-    reverse_rotate(l, k)
+    left_rotate_reverse(l, k)
 
 if __name__ == "__main__":
     print("Give the elements of the original list followed by number of rotations : ")
