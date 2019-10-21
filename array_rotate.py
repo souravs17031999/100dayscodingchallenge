@@ -27,6 +27,8 @@ def reverse_rotate(l, k):
     reverse(l, 0, n-1)  # reverse overall array
     print(l)
 
+
+'''
 # second method using temporary array
 def left_rotate_temp(l, k):
     '''
@@ -51,7 +53,7 @@ def left_rotate_temp(l, k):
         l[i] = temp[j]
         j += 1
     print(l)
-
+'''
 def main_rotate(l, k):
     '''
     parameters :
@@ -61,9 +63,9 @@ def main_rotate(l, k):
     '''
     l1 = l.copy()
     print(f"Original list: {l}")
-    print("Modified list after rotation using temp array :")
-    left_rotate_temp(l, k)
-    print(f"Modified list after using reverse rotate : ")
+    #print("Modified list after rotation using temp array :")
+    #left_rotate_temp(l, k)
+    print(f"Modified list rotate : ")
     reverse_rotate(l1, k)
 
 if __name__ == "__main__":
