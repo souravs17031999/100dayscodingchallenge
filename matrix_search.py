@@ -1,4 +1,4 @@
-# program for searching over a 2-D matrix efficiently
+# program for searching over a sorted 2-D matrix efficiently
 
 # first idea is to apply binary search over the matrix in following fashion - firstly applying binary search over matrix rows and finding that row which contains that element
 # and then again apply binary search over that found row
