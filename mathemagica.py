@@ -25,4 +25,11 @@ class mathemagica:
 
     def fib(n):
         return round((((1 + m.sqrt(5))/2)**n)/ m.sqrt(5))
-        
+
+    # function for transpose of matrix - logic is to swap the values in upper triangular and lowe triangular part keeping diagonal elements intact
+    def transpose(mat):
+        n = len(mat)
+        for i in range(0, n):
+            for j in range(i + 1, n):
+                mat[i][j], mat[j][i] = mat[j][i], mat[i][j]
+        return mat
