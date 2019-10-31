@@ -2,6 +2,7 @@
 
 # function for subarray_sum which returns the maximum sum of contigous array
 # IDEA: Logic is that we can simply initialize two varibales - current sum and maximum sum(which we have to found) and then keep iterating over the list and then, if current sum becomes negative, then make it zero because it will decrease the max sum and overall it will reinialize the current sum whereas simulataneously, keep track of maximum sum found till now by comparing it with current sum.
+# This is also said "Kadane's algorithm"
 def subarray_sum(arr, n):
     '''
     parameters:
