@@ -38,3 +38,7 @@ if __name__ == '__main__':
             print('all chars are repeating')
         else:
             print(f'first non repeating char is \'{user_string[index]}\'')
+            
+
+ # if the problem asks for kth non repeating character for the string, in that case we can make two lists - one for count and one for index and then 
+#  sort the index list and return the k-1 th value (if there is any).
