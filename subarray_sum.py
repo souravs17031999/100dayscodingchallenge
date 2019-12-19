@@ -10,12 +10,11 @@ def subarray_sum(arr, n):
     n : size of array
     return : returns maximum sum
     '''
-    current_sum = 0
-    max_sum = 0
+    current_sum = max_sum = arr[0]
     # iterate over the array
-    for i in range(n):
+    for i in range(1, n):
         # update current sum by adding next element in the current subarray
-        current_sum = max(0, current_sum + arr[i])
+        current_sum = max(arr[i], current_sum + arr[i])
         # compare and set the max sum
         max_sum = max(current_sum, max_sum)
     return max_sum
@@ -46,7 +45,7 @@ def print_maximum(arr, n):
             max_sum = current_sum
             start = s
             end = i
-    # printing the required subarray        
+    # printing the required subarray
     print('subarray containing maximum sum :')
     for k in range(start, end+1):
         print(arr[k], end = " ")
