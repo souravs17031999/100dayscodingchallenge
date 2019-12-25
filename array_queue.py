@@ -6,7 +6,7 @@ class queue:
     def __init__(self, length):
         self.front = 0
         self.rear = 0
-        self.arr = [0] * length
+        self.arr = [None] * length
         self.maxLength = length
     # for pushing the elements to the end of queue, 0(1)
     def enqueue(self, x):
