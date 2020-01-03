@@ -33,3 +33,6 @@ class mathemagica:
             for j in range(i + 1, n):
                 mat[i][j], mat[j][i] = mat[j][i], mat[i][j]
         return mat
+
+    def count_digits(n):
+        return int(math.log10(n) + 1)    
