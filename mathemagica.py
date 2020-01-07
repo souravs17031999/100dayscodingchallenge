@@ -35,4 +35,4 @@ class mathemagica:
         return mat
 
     def count_digits(n):
-        return int(math.log10(n) + 1)    
+        return int(math.log10(n) + 1)
