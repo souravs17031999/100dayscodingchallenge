@@ -16,6 +16,8 @@ def triple_sum(l, target):
         while(start < end):
             if l[start] + l[end] == k:
                 print(f'{l[i]}, {l[start]} and {l[end]}')
+                start += 1
+                end -= 1
             if l[start] + l[end] > k:
                 end -= 1
             else:
