@@ -6,7 +6,8 @@ def triple_sum(l, target):
     # sort the array
     l.sort()
     # fixing one element one by one
-    for i in range(len(l)):
+    for i in range(len(l)-2):
+        if i>0 and l[i]==l[i-1]: continue
         # setting first index as always the next one of choosen element
         start = i + 1
         end = len(l) - 1
@@ -16,6 +17,9 @@ def triple_sum(l, target):
         while(start < end):
             if l[start] + l[end] == k:
                 print(f'{l[i]}, {l[start]} and {l[end]}')
+                # if removing duplicates, then
+                while start < end and l[start] == l[start - 1]: start += 1
+                while start < end and l[end] == l[end + 1]: end -= 1
                 start += 1
                 end -= 1
             if l[start] + l[end] > k:
