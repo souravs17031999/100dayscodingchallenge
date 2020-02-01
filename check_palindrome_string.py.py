@@ -1,5 +1,6 @@
 # Program to check whether string is a valid palindrome, ignoring any other character than alphanumeric, and ignoring cases.
 # Logic is to simply use two pointer technique, ignoring any non valid character , only comparing alnum chars , and returning true or false.
+# Time complexity is 0(N) and space complexity is 0(1)
 def valid_palindrome(s):
     # assuming empty string is valid palindrome
     if len(s) == 0:
@@ -22,7 +23,7 @@ def valid_palindrome(s):
             else:
                 start += 1
                 end -= 1
-    # every valid char is same, from both sides, thereby returning True at this point             
+    # every valid char is same, from both sides, thereby returning True at this point
     return True
 
 # main function
