@@ -2,7 +2,7 @@
 
 # METHOD 4 STARTS
 # THIS USES BOYER - MOORE VOTING ALGORITHM
-# BEST METHOD , TAKES 0(N) TIME, 0(N) SPACE BUT AGAIN IT ASSUMES MAJORITY ELEMENT EXISTS
+# BEST METHOD , TAKES 0(N) TIME, 0(1) SPACE BUT AGAIN IT ASSUMES MAJORITY ELEMENT EXISTS
 # logic is to simply keep an counter of elements when repeated to be seen, and keep a variable for setting majority element, as soon as we see the same
 # element , we increase its count, and as soon as we see some another element, we decrease the count till 0, when we change the majority element now to # # be at the current element as a new candidate and start the counter again , finally at the end, we will be having our majority element stored.
 def find_majority(arr):
@@ -10,7 +10,7 @@ def find_majority(arr):
     count = 0
     M_element = None
     for i in range(array_size):
-        if count == 0:
+        if count == 0: 
             M_element = arr[i]
         if arr[i] == M_element:
             count += 1
