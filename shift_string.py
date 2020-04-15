@@ -1,6 +1,7 @@
 # program to shift strings according to given shift matrix containing direction and steps needed to shift
 # 0 means shift left, 1 means right shift and first index of each row of matrix gives direction
 # and second index gives steps
+# since the constrains are small, so 0(n*n) can be passed here.
 
 def reverse(s, start, end):
     l = list(s)
@@ -39,7 +40,7 @@ def shift_string(s, shift):
 
     return s
 
-# main driver function 
+# main driver function
 if __name__ == '__main__':
     shift = [[0, 1], [1, 2]]
     s = "abc"
