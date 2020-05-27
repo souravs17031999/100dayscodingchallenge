@@ -2,7 +2,7 @@
 # first logic is we can simply sort the strings and compare them
 # second optimized version is to count all the characters frequencies and then
 # comprare both dictioneries tracking occurence of all chars whose implementation
-# is below 
+# is below
 
 def isAnagram(s1, s2):
     count_s1 = {}
@@ -20,3 +20,26 @@ def isAnagram(s1, s2):
             count_s2[i] = 0
 
     return count_s1 == count_s2
+
+def Anagram(s1, s2):
+    count = {}
+    for i in range(len(s1)):
+        if s1[i] in count:
+            count[s1[i]] += 1
+        else:
+            count[s1[i]] = 1
+    print(count)
+    for i in range(len(s2)):
+        if s2[i] in count:
+            count[s2[i]] -= 1
+        else:
+            count[s2[i]] = 1
+    print(count)
+    for i in count.values():
+        if i:
+            return "NOPE"
+    return "YES !!"
+
+
+if __name__ == '__main__':
+    print(Anagram('SILENT', 'LISTEN'))
