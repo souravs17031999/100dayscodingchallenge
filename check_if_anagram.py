@@ -21,6 +21,7 @@ def isAnagram(s1, s2):
 
     return count_s1 == count_s2
 
+# this code takes 0(N) complexity, overall less than previous one.
 def Anagram(s1, s2):
     count = {}
     for i in range(len(s1)):
