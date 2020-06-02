@@ -24,8 +24,32 @@ def counting_sort(arr, n):
             j += 1
     return arr
 
-# main function 
+    # Note  : Counting sort for Negative numbers
+    # idea is to store counts but for postive numbers only by mapping negative numbers to their positive counterparts by taking how much far my number is
+    # from minimum number, as minimum will be -ve and so we can get positive indices by subracting -ve numbers.
+    # and then when we need to get back our original numbers, we again add up the min and current element.
+    def counting_sort_neg(arr, n):
+        min_ele = min(arr)
+        size_range = max(arr) - min(arr) + 1
+        count = [0 for _ in range(size_range)]
+        # calculating counterpart of this negative number to map to its positive index
+        for i in range(len(arr)):
+            count[arr[i] - min_ele] += 1
+
+        j = 0
+        for i in range(size_range):
+            temp = count[i]
+            while temp:
+                arr[j] = i + min_ele # use -(i + min_ele) for descending order
+                temp -= 1
+                j += 1
+
+        print(arr)
+
+# main function
 if __name__ == '__main__':
     arr = list(map(int, stdin.readline().strip().split()))
     n = len(arr)
     print(counting_sort(arr, n))
+    input_list = [random.randint(-10000, 10000) for _ in range(10000)]
+    counting_sort_neg(input_list, len(input_list))
