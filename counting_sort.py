@@ -46,6 +46,27 @@ def counting_sort(arr, n):
 
         print(arr)
 
+    # idea is to compute first simply frequencies, then prefix sum, then we need to again find the position for the original array
+    def main_counting_sort(arr, n):
+        k = max(arr) + 1
+        # output for sorted array
+        output = [0 for _ in range(len(arr))]
+        # count storage , auxiliary array
+        count = [0 for _ in range(k)]
+        # compute frequecnies
+        for i in range(len(arr)):
+            count[arr[i]] += 1
+        # compute prefix sum
+        for i in range(1, k):
+            count[i] += count[i - 1]
+        # finally, placing input elements in their correct positions , going from back to produce stable sort ,
+        # otherwise traversing from front will also work but not stable
+        for i in range(len(arr)-1, -1, -1):
+            output[count[arr[i]] - 1] = arr[i]
+            count[arr[i]] -= 1
+
+        print(output)    
+
 # main function
 if __name__ == '__main__':
     arr = list(map(int, stdin.readline().strip().split()))
