@@ -3,7 +3,7 @@
 # Since, this is guaranteed that there is only one extra element added, then we can make use of XOR trick to find that extra element.
 # ex. s = "abcd", t = "abcde"
 # S ^ T = "e"
-# Time : 0(N), Space : 0(N)
+# Time : 0(N), Space : 0(1)
 
 # function to solve above problem using XOR trick
 
@@ -13,14 +13,12 @@ def findTheDifference(self, s: str, t: str) -> str:
         return
 
     # since , XOR works on numbers, hence converting to ASCII form
-    count_s = [ord(i) for i in s]
-    count_t = [ord(i) for i in t]
     # taking XOR of first string
     res = 0
-    for i in count_s:
-        res ^= i
+    for i in s:
+        res ^= ord(i)
     # taking XOR of second string which effectively will cancel out repeated
     # elements and remaining one will be the extra element
-    for i in count_t:
-        res ^= i
+    for i in t:
+        res ^= ord(i)
     return chr(res)
