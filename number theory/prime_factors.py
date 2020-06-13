@@ -39,4 +39,4 @@ def prime_factor(n):
 #
 
 if __name__ == '__main__':
-    print(prime_factor(121))
+    print(prime_factor(60))
