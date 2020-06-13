@@ -27,7 +27,7 @@ def prime_factor(n):
 # def prime_factor3(n):
 #     l = []
 #     while n % 2 == 0:
-#         l.append(n)
+#         l.append(2)
 #         n = n / 2
 #
 #     for i in range(3, int(math.sqrt(n)) + 1, 2):
