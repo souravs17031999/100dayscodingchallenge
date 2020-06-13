@@ -48,3 +48,25 @@ class mathemagica:
             n = n >> 1
 
         return ans
+
+    # gives position of rightmost set bit , as in 1-based indexing from right to left
+    def right_set(n):
+        return math.log2(n & -n) + 1
+
+    # returns bool depending upon if the number is a power of two
+    def check_power_2(n):
+        return(math.ceil(math.log(n) // math.log(2)) == math.floor(math.log(n) // math.log(2)))
+
+    # Given two integers N and K, the task is to find the Kth root of the number N.
+    def nth_root(n, k):
+        return pow(k, (1.0 / k) * (math.log(n) / math.log(k)));
+
+    # Given two integers N and K, the task is to check if Y is power of X or not.
+    def check_nth_root(n, k):
+        res1 = math.log(N) / math.log(K)
+        res2 = math.log(N) / math.log(K)
+        return (res1 == res2)
+
+    # To find the power of K greater than equal to and less than equal to N:
+    def check_power(n, k):
+        pass
