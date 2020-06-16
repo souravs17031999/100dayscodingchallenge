@@ -3,6 +3,8 @@
 # Idea is to whenever we find the required element, then we should not stop ,
 # but rather go on in left for finding first occurence or go on in right
 # for finding last occurence.
+# We can construct two separate functions for acheiving this two positions by changing just at the time when arr[mid] == x, 
+# so that we don;t stop there and keep exploring from there either in left space or in right space depending upon which occcurence is needed.
 # We can also combine both the condition in one line as finding greater than or
 # equal to x, and then for x + 1 (now this will be start of some other element)
 # greater than x but the position will indicate the last occurence of x
