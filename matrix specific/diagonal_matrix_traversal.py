@@ -52,8 +52,52 @@ def findDiagonalOrder(matrix):
 # so, direction can be some boolean var which will be reversing in each iteration, then head pointers can be found by last tail diagonal traversal.
 # like if we are coming downwards, then next head will be just below element if it's within the bounds , toherwise it will be in right
 # similary , if we are moving upwards, then our next head will be right if within bounds, otherwise it will be just below (for outer bounds)
-# in this case, space complexity will be 0(1) , although time complexity will remain same because traversal logic is same. 
+# in this case, space complexity will be 0(1) , although time complexity will remain same because traversal logic is same.
 # main function
+
+
+## IMPORTANT , THERE IS ANOTHER SIMPLEST SOLUTION WITH SAME TIME AND SPACE COMPLEXITY.
+# IDEA: LOGIC IS THAT DIAGONALS ARE DEFINED BY THE SUM OF THE INDICES OF THE ELEMENTS.
+# SO, ELEMENTES ON THE SAME DIAGONALS WILL HAVE SAME SUM AND IF WE CAN STORE THESE IN THE FORM OF DICTIONERY WHERE KEY IS SUM OF THE INDICES AND APPENDS ALL THE ELEMENT
+# TO THE LIST AS VALUE OF THAT KEY.
+# THEN, WE CAN CREATE OUR ANSWER LIST WHICH CAN SIMPLY REVERSE IF NEEDED (TEMP ARRAY REVERSAL BASED ON EVEN OR ODD DIAGONALS)
+# TIME : 0(M*N), SPACE : 0(MAX(M, N))
+
+def traverse(mat):
+
+    # m denotes rows and n denotes columns
+    m = len(mat)
+    if m == 0:
+        return []
+
+    n = len(mat[0])
+    if m == 1 and n == 1:
+        return [mat[0][0]]
+
+
+    # THIS DICTIONERY MAINTAINS KEY AS SUM OF THE INDICES WHICIH ARE ON THE SAME DIAGONALS
+    # AND VALUE AS LIST OF ELEMENTS ON  THE SAME DIAGONALS
+    diagonal_idx = {}
+
+    for i in range(m):
+        for j in range(n):
+            if i + j not in diagonal_idx:
+                diagonal_idx[i + j] = [mat[i][j]]
+            else:
+                diagonal_idx[i + j].append(mat[i][j])
+
+    # CREATING OUR ANSWER LIST , IF DIAGONAL IS EVEN, REVERSE THE TEMP ARRAY STORED IN DICTIONERY , OTHERWISE SIMPLY APPEND IT TO OUR ORIGINAL ANSWER LIST
+    ans = []
+    for i, j in diagonal_idx.items():
+
+        if i & 1:
+            ans.extend(j)
+        else:
+            ans.extend(j[::-1])
+
+    return ans
+
+
 if __name__ == '__main__':
     matrix = [[1,2,3],[4,5,6],[7,8,9]]
     print(findDiagonalOrder(matrix))
