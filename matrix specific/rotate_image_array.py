@@ -1,4 +1,5 @@
-# program to rotate the matrix in-place by 90 degrees anti-clockwise (or clockwise)
+# program to rotate the matrix in-place by 90 degrees anti-clockwise here (or clockwise)
+
 # IDEA: There are two algorithms (both efficient, taking similar asymtodic bounds but one (first one) having less computations than the other) and both have been discussed below (first one is more efficient as it takes less computations otherwise both takes same asymtodic bounds)
 
 # function: move in cycles algorithm for rotating N * N array 90 degrees
