@@ -42,6 +42,11 @@ def matrix_traversal(mat):
 
             l += 1
 
+# Anti-spiral traversal
+# We can observe that anti-spiral print is exactly opposite print of spiral
+# So, we can use stacks for storing all the elements and then, pop out one by one and print all the elements.
+
+
 # driver function
 if __name__ == '__main__':
     mat = [[1, 2, 3, 4, 5, 6], [7, 8, 9, 10, 11, 12], [13, 14, 15, 16, 17, 18]]
