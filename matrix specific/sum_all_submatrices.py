@@ -65,7 +65,7 @@ def compute_sum_2(mat):
     # p here is storing prefix sum
     p = compute_prefix(mat)
     # padding with lengh  = 1 on all sides => filling with 0
-    p = np.pad(p, 1, 'constant')
+    #p = np.pad(p, 1, 'constant'), we can also use padding 
     n = len(p)
     # two for loops for initiliazing left most corner
     for i in range(n):
@@ -73,8 +73,10 @@ def compute_sum_2(mat):
             # two for loops for initiliazing every possible right most corner for above generated left most corner points
             for x in range(i, n):
                 for y in range(j, n):
+                    sum = p[x][y]
                     # now applying this trick to extract the sum for this particular submatrix and this computation is 0(1) time.
-                    sum += p[x][y] + p[i - 1][j - 1] - p[i - 1][y] - p[x][j - 1]
+                    if i or j > 0:
+                        sum += p[i - 1][j - 1] - p[i - 1][y] - p[x][j - 1]
 
     # finally printing the computed overall sum
     print(sum)
