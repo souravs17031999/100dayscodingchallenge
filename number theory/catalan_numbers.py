@@ -37,5 +37,4 @@ def catalan_binom(n):
 
 # main function
 if __name__ == '__main__':
-    print(catalan(100))
-    print(catalan_binom(3))
+    print(catalan(10))
