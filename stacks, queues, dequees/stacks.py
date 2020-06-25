@@ -44,7 +44,7 @@ class Stack:
     def isEmpty(self):
         return self.top == None
 
-    # function for getting size of stack 
+    # function for getting size of stack
     def getSize(self):
         count = 0
         ptr = self.top
@@ -52,6 +52,11 @@ class Stack:
             ptr = ptr.next
             count += 1
         return count
+
+    def getTop(self):
+        if not self.top:
+            return None
+        return self.top
 
 # DRIVER TEST FUNCTION
 if __name__ == '__main__':

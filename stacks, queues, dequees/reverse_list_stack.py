@@ -1,6 +1,7 @@
 # program for reversing the linked lists using stacks
-from linkedlist import Node, LList
-
+import sys
+sys.path.insert(1, 'C:/Users/DELL/Desktop/souravs17031999.github.io/100dayscodingchallenge/stacks, queues, dequees')
+from stacks import Stack
 # logic is to simply create a empty list and append elements of Node type directly into stack so that when we pop, we get it;s address to be put into next of new nodes contanining.
 # now, keep popping and appending it to end of newly created list and keeping a pointer always to last of list.
 # function for reversing the linked lists
@@ -23,11 +24,11 @@ def reverse_stack(head):
     return head
 
 if __name__ == '__main__':
-    l = LList()
-    head = Node(0)
-    l.add_node_end(head, 1)
-    l.add_node_end(head, 2)
-    l.add_node_end(head, 3)
-    l.print_list(head)
+    s = Stack()
+    s.push(0)
+    s.push(1)
+    s.push(2)
+    s.push(3)
+    head = s.getTop()
     head = reverse_stack(head)
-    l.print_list(head)
+    print(head.data)
