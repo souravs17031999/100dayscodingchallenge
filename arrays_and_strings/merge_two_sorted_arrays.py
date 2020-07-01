@@ -45,13 +45,14 @@ def merge(arr1, arr2):
 #  in which case then, we have to swap the elements in both arrays, threby maintaining sorted order.
 # time : 0(m*n)
 # space : 0(1)
+
 def merge_mod(arr1, arr2):
     arr1_size = len(arr1)
     arr2_size = len(arr2)
     if arr1_size == 0:
-        return arr2
+        return
     if arr2_size == 0:
-        return arr1
+        return
     # looping from back of second array
     for i in range(arr2_size - 1, -1, -1):
         # setting pointer for first array
