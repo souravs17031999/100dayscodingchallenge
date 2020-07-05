@@ -49,3 +49,9 @@ for i in range(len(mheap)):
 print(f"\nMin from heap : {-mheap[0]}")
 
 print(f"popped from heap : first : {-heappop(mheap)} second : {-heappop(mheap)}")
+
+
+## If more than one element has to be put in heap, then we have to pass it as tuple of elements (similar for priority queue)
+# heap = []
+# heapify(heap)
+# heappush(heap, (x, y, z...))
