@@ -46,7 +46,7 @@ def counting_sort(arr, n):
 
         print(arr)
 
-    # idea is to compute first simply frequencies, then prefix sum, then we need to again find the position for the original array
+    # idea is to compute first simply compute frequencies, then prefix sum, then we need to again find the position for the original array
     def main_counting_sort(arr, n):
         k = max(arr) + 1
         # output for sorted array
@@ -65,7 +65,7 @@ def counting_sort(arr, n):
             output[count[arr[i]] - 1] = arr[i]
             count[arr[i]] -= 1
 
-        print(output)    
+        print(output)
 
 # main function
 if __name__ == '__main__':
