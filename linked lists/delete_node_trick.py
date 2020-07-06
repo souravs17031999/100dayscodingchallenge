@@ -7,6 +7,7 @@
 # create a dummy node and apply the same logic as above and we will finally have a LinkedList with deleted node and a extra dummy node.
 
 # TIME : 0(1), SPACE  : 0(1)
+import sys
 
 class Node:
 
@@ -18,14 +19,26 @@ class Node:
 class LinkedList:
 
     def delete_node(self, node):
-        # ptr is pointing to next node
-        ptr = node.next
-        # copying the next element value to current value
-        node.data = ptr.data
-        # directly linking current element to the next to next element , bypassing next element (which is now node to be deleted)
-        node.next = ptr.next
-        # now, setting next node (node which is deleted) to None
-        ptr.next = None
+
+        if node.next != None:
+            # ptr is pointing to next node
+            ptr = node.next
+            # copying the next element value to current value
+            node.data = ptr.data
+            # directly linking current element to the next to next element , bypassing next element (which is now node to be deleted)
+            node.next = ptr.next
+            # now, setting next node (node which is deleted) to None
+            ptr.next = None
+            return
+
+        # This case should be there if we also want to delete last node - by introducting dummy node
+        # but this will affect other programs using this, hence we should also modify other programs according to it.
+        # dummy = Node(sys.maxsize)
+        # node.next = dummy
+        # node.data = dummy.data
+        # node.next = None
+        # del dummy
+
 
     # printing the linked list
     def pretty_print(self, head):
@@ -35,7 +48,7 @@ class LinkedList:
             return
 
         ptr = head
-        while ptr != None:
+        while ptr:
             print(ptr.data, end = "->")
             ptr = ptr.next
 
@@ -53,6 +66,6 @@ if __name__ == '__main__':
 
     llist = LinkedList()
     llist.pretty_print(head)
-    llist.delete_node(node2)
+    llist.delete_node(node4)
     print()
     llist.pretty_print(head)
