@@ -1,4 +1,4 @@
-# Program to compute maximum sum of biotonic subarray , meaning subarray should be first increasing and
+# Program to compute maximum length of biotonic subarray , meaning subarray should be first increasing and
 # then  decreasing.
 
 # Logic :
