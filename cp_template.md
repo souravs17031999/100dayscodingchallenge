@@ -11,7 +11,7 @@ if __name__ == '__main__':
     nested inputs list     
     park = []   
     for i in range(n):     
-       park.append(list(stdin.readline().strip().split()))    
+       park.append(list(map(int, stdin.readline().strip().split())))    
 ```  
 # use lambda for short hand functions !   
 # use in-built collections and itertools !   
