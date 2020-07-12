@@ -3,6 +3,7 @@
 # first idea is to apply binary search over the matrix in following fashion - firstly applying binary search over matrix rows and finding that row which contains that element
 # and then again apply binary search over that found row
 
+import random
 # function for binary search for a single array (a particular row of matrix)
 def binary_search(l, start, end, key):
     while(start <= end):
@@ -63,17 +64,37 @@ def matrix_search_staircase(l, m, n, k):
     return 0
 
 
+# Note : NOW, THERE ARE TWO VARIANTS FOR THE PROBLEM, once in which row and col wise sorted but it is not guaranteed, that rightmost
+# element is greater than leftmost of next column.
+# If that is the case, then we can surelty optimize for the linear time algo (above algo) at the best.
+# Now, If it is guaranteed that rightmost of every row is greater than leftmost of its following column, that means
+# overall matrix can mentally thought to be a single sorted 1-d array and if we can get actual element through a mapping
+# without actually converting 2-d array into 1-d array, then we can do this work in logarithmic time and no extra space.
+# Since, total number of elements will be m*n for our "mental 1-d array",
+# we can actually map using (i, j) = ((indexin1-d // cols), (indexin1-d % cols)) which then can be used to apply binary_search.
+# TIME : 0(lg(M*N)) which is most optimized for this type of variant.
+
+def mat_bin_search(mat, m, n, key):
+    start, end = 0, m * n - 1
+
+    while start <= end:
+        mid = (start + end) // 2
+        row, col = mid // n, mid % n
+        if mat[row][col] == key:
+            return 1
+        elif mat[row][col] < key:
+            start = mid + 1
+        else:
+            end = mid - 1
+
+    return 0
+
+
 # main function
 if __name__ == '__main__':
-    p = list(map(int, input().strip().split()))
-    m, n = p[0], p[1]
-    l = list(map(int, input().strip().split()))
-    mat = [l[i:i+m] for i in range(0, len(l), m)]
-    #for i in range(0, len(l), m):
-    #    mat.append(l[i:i + m])
-    print(mat)
-    K = int(input().strip())
-    print(matrix_search_staircase(mat, n, m, K))
+    matrix = [[1, 5, 9], [14, 20, 21], [30, 34, 43]]
+    M, N, K = 3, 3, 43
+    print(mat_bin_search(matrix, M, N, K))
     # 3 3
     #3 30 38 44 52 54 57 60 69
     # 30
