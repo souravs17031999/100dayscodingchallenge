@@ -33,7 +33,7 @@ def binom(n, k):
 # function to get nth catalan numbers
 def catalan_binom(n):
     c = binom(2*n, n)
-    return c / n + 1
+    return c // (n + 1)
 
 # main function
 if __name__ == '__main__':
