@@ -55,3 +55,6 @@ print(f"popped from heap : first : {-heappop(mheap)} second : {-heappop(mheap)}"
 # heap = []
 # heapify(heap)
 # heappush(heap, (x, y, z...))
+
+# When we need comparator based insertion such that, we need to insert on the basis of any one index or element , then it should always be first index.
+# so in case of heappush(heap, (x, y, z...)), heap will be maintained on the basis of "x".
