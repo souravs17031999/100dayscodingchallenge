@@ -1,6 +1,43 @@
 # program to implement adjacency list representation of graphs in python
 # IDEA: logic is to maintain a list of vertices as a list and then use linked list for storing all adjacent nodes for that particular vertex corresponding to the index of the list and each value in the list will store the address of the first node attached to it (head pointer for linked list).
+# -----------------------------------------------------------------------------
+#  0 --------1
+#  ||     /
+#  ||    /
+#  ||  /      | - -|
+#   2 ------- 3 |
+# -----------------------------------------------------------------------------
+# Fast template using collections for Graph
 
+from collections import defaultdict as dd
+class Graph:
+
+    def __init__(self, size):
+        self.V = size
+        self.graph = dd(list)
+
+    def add_Edge(self, u, v):
+        self.graph[u].append(v)
+
+    def printGraph(self):
+        for i in range(self.V):
+            print(i, end = "->")
+            for j in self.graph[i]:
+                print(j, end = " ")
+            print()
+
+if __name__ == '__main__':
+
+    graph = Graph(4)
+    graph.add_Edge(0, 1)
+    graph.add_Edge(0, 2)
+    graph.add_Edge(1, 2)
+    graph.add_Edge(2, 0)
+    graph.add_Edge(2, 3)
+    graph.add_Edge(3, 3)
+    graph.printGraph()
+
+# ------------------------------------------------------------------
 # class to represent node structure
 class adjnode:
     def __init__(self, data):
@@ -39,7 +76,7 @@ class graph:
 # another implementation of graph optimized : by using defaultdict from collections and passing list as argument -> defautdict(list) so that each key is a vertex and keys are list of nodes which are appended and newer keys are automatically added into the dictionery as it is the property of that.
 
 
-# main function 
+# main function
 if __name__ == '__main__':
     g = graph(5)
     g.add_edge(0, 1)
