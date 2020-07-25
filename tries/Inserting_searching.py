@@ -29,13 +29,22 @@
 # BUT IF ANYWHERE ORdering is also important, then we need to keep a List names as
 # CHILDREN[MAX] , where MAX will be 26 if considering only lower case, or 256 in general.
 # and also we can keep an mapping using ord().
+# Ordering is important in Trie.
+#
+# class TrieNode:
+#
+#     def __init__(self, data):
+#         self.data = data
+#         self.children = {}
+#         self.terminal = False
 
 class TrieNode:
 
     def __init__(self, data):
         self.data = data
-        self.children = {}
+        self.children = [0] * 256 # can also use 26 , ord(ch) - ord('a')
         self.terminal = False
+
 
 
 class Trie:
@@ -43,16 +52,19 @@ class Trie:
     def __init__(self):
         self.root = TrieNode('')
 
+    def index(self, ch):
+        return ord(ch)
+
     def insert(self, key):
 
         ptr = self.root
         for i in range(len(key)):
             ch = key[i]
+            index = self.index(ch)
+            if not ptr.children[index]:
+                ptr.children[index] = TrieNode(ch)
 
-            if ch not in ptr.children:
-                ptr.children[ch] = TrieNode(ch)
-
-            ptr = ptr.children[ch]
+            ptr = ptr.children[index]
 
         ptr.terminal = True
 
@@ -62,37 +74,43 @@ class Trie:
         for i in range(len(key)):
 
             ch = key[i]
-            if ch not in ptr.children:
+            index = self.index(ch)
+            if not ptr.children[index]:
                 return False
 
-            ptr = ptr.children[ch]
+            ptr = ptr.children[index]
 
         return ptr.terminal
 
     def isEmpty(self, ch):
-        if len(self.root.children[ch]):
+        index = self.index(ch)
+        if not self.root.children[index]:
             return False
 
         return True
 
     def search_root(self):
-        print(self.root.children)
+        pass
 
-    def Pretty_print(self, keys):
+    def pretty_print(self, keys):
+
         for i in range(len(keys)):
-            ptr = self.root.children[keys[i][0]]
-            print(f"{ptr.data} ", end = "")
-            for j in range(1, len(keys[i])):
-                ptr = ptr.children[keys[i][j]]
-                print(f"{ptr.data} ", end = "")
+            ch = keys[i][0]
+            index = self.index(ch)
+            ptr = self.root.children[index]
+            print(ptr.data, end = "")
+            for j in range(len(keys[i])):
+                ch_index = self.index(keys[i][j])
+                if ptr.children[ch_index]:
+                    ptr = ptr.children[ch_index]
+                    print(ptr.data, end = "")
             print()
 
-if __name__ == '__main__':
 
+if __name__ == '__main__':
     t = Trie()
     keys = ["the", "a", "there", "answer", "any", "by", "their", "sourav"]
     for i in keys:
         t.insert(i)
-    print(t.search('sourav'))
-    t.search_root()
-    t.Pretty_print(keys)
+    # print(t.search('sourav'))
+    t.pretty_print(keys)

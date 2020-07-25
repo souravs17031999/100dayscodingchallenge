@@ -16,8 +16,8 @@ class TrieNode:
 
     def __init__(self, data):
         self.data = data
+        self.children = [0] * 256 # can also use 26 , ord(ch) - ord('a')
         self.freq = 1
-        self.children = {}
         self.terminal = False
 
 
@@ -26,19 +26,38 @@ class Trie:
     def __init__(self):
         self.root = TrieNode('')
 
+    def index(self, ch):
+        return ord(ch)
+
     def insert(self, key):
 
         ptr = self.root
         for i in range(len(key)):
             ch = key[i]
-            if ch not in ptr.children:
-                ptr.children[ch] = TrieNode(ch)
+            index = self.index(ch)
+            if not ptr.children[index]:
+                ptr.children[index] = TrieNode(ch)
             else:
-                ptr.children[ch].freq += 1
+                ptr.freq += 1
 
-            ptr = ptr.children[ch]
+            ptr = ptr.children[index]
 
         ptr.terminal = True
+
+
+    def pretty_print(self, keys):
+
+        for i in range(len(keys)):
+            ch = keys[i][0]
+            index = self.index(ch)
+            ptr = self.root.children[index]
+            print(f"{ptr.data} ({ptr.freq}) ", end = "")
+            for j in range(len(keys[i])):
+                ch_index = self.index(keys[i][j])
+                if ptr.children[ch_index]:
+                    ptr = ptr.children[ch_index]
+                    print(f"{ptr.data} ({ptr.freq}) ", end = "")
+            print()
 
     def find_prefix(self, keys):
 
@@ -47,13 +66,13 @@ class Trie:
 
         ans = []
         for i in range(len(keys)):
-            ptr = self.root.children[keys[i][0]]
+            ptr = self.root.children[self.index(keys[i][0])]
             temp = []
             for j in range(1, len(keys[i])):
                 temp.append(ptr.data)
                 if ptr.freq == 1:
                     break
-                ptr = ptr.children[keys[i][j]]
+                ptr = ptr.children[self.index(keys[i][j])]
             ans.append(temp)
 
         print(ans)
@@ -63,3 +82,4 @@ if __name__ == '__main__':
     t = Trie()
     keys = ["zebra", "dog", "duck", "dove"]
     t.find_prefix(keys)
+    t.pretty_print(keys)
