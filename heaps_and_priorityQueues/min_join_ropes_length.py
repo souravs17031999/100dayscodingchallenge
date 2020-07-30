@@ -6,7 +6,7 @@
 # So, everytime we extract two minimum from the min heap and then add them to the cost so far, and then push back the the
 # popped element cost again in the heap as we also want to keep track of old cost to be added in the next iteration.
 # This goes on till we have atleast two elements in the heap.
-# TIME : 0(lg(N))
+# TIME : 0(N*lg(N)), SPACE : 0(N).
 
 
 from heapq import heappush, heappop, heapify
