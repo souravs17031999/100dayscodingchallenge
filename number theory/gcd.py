@@ -40,4 +40,4 @@ def gcd1(a, b):
 
 
 if __name__ == '__main__':
-    print(gcd1(10, 20))
+    print(gcd1(100089, 200000))
