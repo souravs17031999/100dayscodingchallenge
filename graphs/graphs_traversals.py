@@ -68,20 +68,20 @@ class adjgraph:
         stack.append(s)
         while stack:
             p = stack.pop()
-            if visited[p] == False:
+            if p not in visited:
                 print(p, end = "-")
-                visited[p] = True
+                visited.add(p)
 
             for i in self.dd[p]:
-                if visited[i] == False:
+                if visited.add(p):
                     stack.append(i)
 
     # main DFS function which runs DFS for every vertex, thus ensuring every disconnected vertex also gets traversed
     def DFS(self):
-        visited = [False] * self.V
+        visited = set()
         print("DFS TRAVERSAL : ", end = "")
         for i in range(self.V):
-            if visited[i] == False:
+            if i not in visited:
                 self.DFSUtil(i, visited)
 
 # main function
