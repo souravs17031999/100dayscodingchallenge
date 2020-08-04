@@ -37,8 +37,9 @@ class Graph:
                 if self.DFS_undirected(i, visited, v):
                     return True
 
-                elif i != parent:
-                    return True
+            elif i != parent:
+                return True
+
         return False
 
     # wrapper function
@@ -88,7 +89,7 @@ class Graph:
         visited = set()
         recurStack = set()
 
-        # for all nodes due to disconnected graphs 
+        # for all nodes due to disconnected graphs
         for i in range(self.V):
             if i not in visited:
                 if self.DFS_directed(i, visited, recurStack):
@@ -109,4 +110,4 @@ if __name__ == '__main__':
     graph.add_Edge(1, 2)
     graph.add_Edge(2, 3)
     # graph.printGraph()
-    print(graph.is_cyclic_directed())
+    print(graph.is_cyclic_undirected())
