@@ -1,5 +1,4 @@
 # DFS traversal for matrix representation of graph
-
 from collections import deque
 
 def DFSUtil(matrix, source, visited):
