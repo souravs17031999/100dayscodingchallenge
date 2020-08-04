@@ -10,7 +10,21 @@
 # IF THERE IS ANY CYCLE, THEN WE WILL NOT BE ABLE TO PERFORM topological ORDERING.
 # BELOW DFS APPROACH WILL NOT BE ABLE TO DETECT IF THERE IS ANY CYCLE OR NOT, AND WILL RESULT
 # IN SOME ORDERING ANYHOW.
-
+# ----------------------------------------------------------
+#
+#       3     1
+#          \>/>
+#           0
+#         />\>
+#       4   2
+# -----------------------------------------------------------
+# Now, if we run normal DFS from 0, then we will get : 0, 1, 2, 3, 4
+# But we need : 3, 4, 0, 1, 2 or 4, 3, 0, 1, 2 or 4, 3, 0, 2, 1 or 3, 4, 0, 1, 2
+# So, the logic is to keep a stack and push the current element onto stack, only when we explored
+# all the adjacent vertices of the current node, this ensures that when we pop from stack, we get
+# complete the contrainst that for any (u, v) u comes before v.
+# ------------------------------------------------------------
+# Use of extra stack :
 # TIME : 0(E + V)
 
 
@@ -33,26 +47,27 @@ class Graph:
 
     # ---------------------------------------------------
     # DFS APPROACH WITH EXTRA STACK
-    def topological_Util(self, v, visited, stack):
+    def DFS(self, v, visited, stack):
 
         visited.add(v)
 
         for i in self.graph[v]:
             if i not in visited:
-                self.topological_Util(i, visited, stack)
+                self.DFS(i, visited, stack)
 
         stack.append(v)
 
     def topological_sort(self):
         visited = set()
         stack = deque([])
+        rec_stack = deque([])
         for i in range(self.V):
             if i not in visited:
-                self.topological_Util(i, visited, stack)
+                self.DFS(i, visited, rec_stack)
 
 
-        while stack:
-            print(stack.pop(), end = " ")
+        while rec_stack:
+            print(rec_stack.pop(), end = " ")
 
     # ---------------------------------------------------
     # Kahn's algorithm using in-degree and out -degree
@@ -112,4 +127,4 @@ if __name__ == '__main__':
     g.add_Edge(4, 1);
     g.add_Edge(2, 3);
     g.add_Edge(3, 1);
-    g.topological_BFS()
+    g.topological_sort()
