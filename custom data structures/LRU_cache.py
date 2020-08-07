@@ -5,7 +5,8 @@
 # no. of frames available (which is generally fixed).
 # Overall, we need to use some kind of data structure which is keeping ordering among
 # the inserted items.
-# Here, we can use a Queue using doubly linked list and Queue
+# Here, we can use a Queue using doubly linked list and HashTable for fast lookups.
+# Hashtables will help in directly locating the value in the list (stores node address).
 # So, for performance, we are using OrderedDict
 # --------------------------------------------------------------------------------
 # Let's say we have a reference string , each of which CPU is asking for page no.
