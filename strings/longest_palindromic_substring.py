@@ -1,9 +1,21 @@
 # Program to return the longest possible palindrome substring in a given string with its maximum length
+# ----------------------------------------------------------------------------------------------------
+# Naive approach would be to generate all the substrins in 0(N^2), and then check whether it's palindrome or not
+# and keep and maintain max lenght obtained so far in more 0(N) , that would mean 0(N^3).
+# ---------------------------------------------------------------------------------------------------
+# Can we do better ?
 # Logic is to start at the middle of string and expand around center in both directions and
 # keeping track of maximum length so far and return the maximum for all sets of chars of string starting
 # from that char, so there will be two cases - even length palindromes and odd length palindromes but both will be handled
 # as in case of odd length we will choose our start and end pointer for expanding around center as the same char, but for the
 # case of even length palindrome, we will choose start as something and just next one as end , so all will be covered like this.
+# ---------------------------------------------------------------------------------
+# So, the first case be something of type "racecar", which basically checks starting from "e", and then
+# keep expanding both side.
+# Similarly, next case will be something like type  "aaabbaaa", which can basically start from char and then
+# just next char => "b"and then "b", and keep expanding on both sides.
+# Now, we get max from both lenghts every time for each char in the string.
+# ----------------------------------------------------------------------------------
 # Time : 0(N*N) , Space : 0(1)
 
 # Function for generating length of palindrome for the given different sets of substrings
@@ -11,8 +23,8 @@ def length_palindrome(s, start, end):
     if s == None or start > end:
         return 0
     n = len(s)
-    # keep moving start pointer left and end pointer right , 
-    # until all matches are made 
+    # keep moving start pointer left and end pointer right ,
+    # until all matches are made
     while start >= 0 and end < n and s[start] == s[end]:
         start -= 1
         end += 1
@@ -28,7 +40,7 @@ def longest_palindrome(s):
     cur_max = 0
     start, end = 0, 0
     for i in range(0, n):
-        # for handling odd length palindromes 
+        # for handling odd length palindromes
         l1 = length_palindrome(s, i, i)
         # fkr handling even length palindromes
         l2 = length_palindrome(s, i, i + 1)
