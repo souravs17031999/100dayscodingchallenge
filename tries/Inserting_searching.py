@@ -29,6 +29,7 @@
 # BUT IF ANYWHERE ORdering is also important, then we need to keep a List names as
 # CHILDREN[MAX] , where MAX will be 26 if considering only lower case, or 256 in general.
 # and also we can keep an mapping using ord().
+# We can then get the key using ord('ch') - ord('a')
 # Ordering is important in Trie.
 #
 # class TrieNode:
