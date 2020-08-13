@@ -6,6 +6,8 @@
 # firstly, we extarct one of the numbers by finding right most set ("1") bit in the XOR result and then, since it is 1, then only one of them should have "1" # in their binary format , so we traverse through the array and do AND-ing using mask (pos of right most index) we get that particular set of numbers which
 # has set bits in their position speicified (we are looking for), and then we keep taking running XOR of this newly found set whenever there is set bit
 # detected at that position and in this way first number is extracted, then we simply do XOR of earlier found overall XOR and this number which simply yields # use the second number.
+# In a way, we have partitioned the array where one half is containing all those which have set bits in the kth pos as found above, and "x" can be find by either one half.
+# So, we consider all those number which have set bits in the same pos, and extract "x" by XORing all of them.
 # This solution takes TIME : 0(N) , SPACE: 0(1)
 
 def two_unique_numbers(arr):
