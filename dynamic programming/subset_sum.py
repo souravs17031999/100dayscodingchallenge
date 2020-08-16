@@ -13,7 +13,7 @@
 # and get the value from there.
 # Since, we just have to return True/False, we maintain dp[value][sum], which is a boolean matrix.
 # --------------------------------------------------------------------------------------------------
-
+# TIME : 0(SUM * N), SPACE : 0(SUM * N)
 
 # A Dynamic Programming solution for subset
 # sum problem Returns true if there is a subset of
@@ -44,6 +44,7 @@ def isSubsetSum(set, n, sum):
 			if j<set[i-1]:
 				subset[i][j] = subset[i-1][j]
 			if j>= set[i-1]:
+				# NOTE : OR IS USED BECAUSE MAX DOESN'T MAKE SENSE FOR BOOLEAN VALUES, SO OR USED 
 				subset[i][j] = (subset[i-1][j] or
 								subset[i - 1][j-set[i-1]])
 
