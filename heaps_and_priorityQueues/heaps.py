@@ -21,7 +21,7 @@ class MinHeap:
 
     # helper function for getting parent of any node at index i
     def parent(self, i):
-        return i // 2
+        return (i - 1) // 2
 
     # helper function for getting left child of any node at index i
     def left(self, i):
