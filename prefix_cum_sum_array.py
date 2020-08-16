@@ -1,5 +1,6 @@
 # Program to compute prefix sum or cummulative sum array so that at every point, we have value equal to sum of all number from 0 to till that index.
-# TIME : 0(N), SPACE : 0(N), WHERE N IS SIZE OF INPUT ARRAY 
+# TIME : 0(N), SPACE : 0(N), WHERE N IS SIZE OF INPUT ARRAY
+# Powerful for range sum queries (if static, that is no updates)
 
 def prefix_sum(arr):
     if not len(arr):
