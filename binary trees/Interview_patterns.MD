@@ -14,4 +14,6 @@
 * If doing iterative approach and need to go back up, hashmaps storing back pointers (parent) is really helpful
 (True for trees and graphs).    
 ## Iterative approach :   
-* Usually this takes more space due to stack/queue/deque but this is pretty easy to think in terms of BFS approach (often coupled with None pointer delimiter logic)    
+* Usually this takes more space due to stack/queue/deque but this is pretty easy to think in terms of BFS approach (often coupled with None pointer delimiter logic) 
+* We can use a queue with BFS coupled with HashMap sorting based on keys efficient for vertical order/bottom order otherwise we can also implement our own MAP as python doesn;t
+support inbuild dict sorted.
