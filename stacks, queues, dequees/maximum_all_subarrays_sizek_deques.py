@@ -14,7 +14,8 @@ def compute_maximum(arr, k):
     # intializing deque
     q = deque()
 
-    # process first k elements
+    # process first k elements such that [1, 2, 3....] => stores only 3 in deque but if like [1, 3, 2....] so
+    # we have to store both 3, 2 both in deque because maybe in next iteration 2., 0, -1... so 2 is required
     for i in range(k):
         # this loop will run until we found first min element, so we will stop at the maximum found so far
         while q and arr[i] >= arr[q[-1]]:
@@ -29,7 +30,7 @@ def compute_maximum(arr, k):
         # print the max
         print(arr[q[0]], end = " ")
 
-        # this will remove all the elements that are out of the current window
+        # this will remove all the elements that are out of the current window (contraction)
         while q and q[0] <= i - k:
             q.popleft()
 
@@ -37,7 +38,7 @@ def compute_maximum(arr, k):
         while q and arr[i] >= arr[q[-1]]:
             q.pop()
 
-        # insert the maximum for the current window
+        # insert the maximum for the current window (expansion)
         q.append(i)
 
     # maximum for the last window
