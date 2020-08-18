@@ -47,6 +47,22 @@ def isBST(root, minV, maxV):
 
     return False
 
+def inorder(root, visited):
+
+    if root == None:
+        return
+    inorder(root.left, visited)
+    visited.append(root.data)
+    inorder(root.right, visited)
+
+def check_is_bst(root):
+    visited = []
+    inorder(root, visited)
+    print(visited)
+    for i in range(1, len(visited)):
+        if visited[i] < visited[i - 1]:
+            return False
+    return True
 
 import sys
 if __name__ == '__main__':
@@ -56,4 +72,4 @@ if __name__ == '__main__':
     root.left.left = Node(1)
     root.left.right = Node(3)
     MIN_VAL, MAX_VAL = - sys.maxsize - 1, sys.maxsize
-    print(isBST(root, MIN_VAL, MAX_VAL))
+    print(check_is_bst(root))
