@@ -63,6 +63,34 @@ def diameter(root):
 
     return max(lheight + rheight, max(ldiameter, rdiameter))
 
+# ---------------------------------------------------------------------------------------------------------------------
+# Alternate top down approach which defines diameter as max value for 1 + left_height + right_height
+# While calculating the height for each node, update the max ans obtained so far (by passing ans var by reference)
+# NOTE : Height is assumed to be calculative of nodes count and not edges count
+# TIME : 0(N)
+
+def Height(root, ans):
+
+    if root == None:
+        return 0
+
+    lheight = Height(root.left, ans)
+    rheight = Height(root.right, ans)
+
+    ans[0] = max(ans[0], 1 + lheight + rheight)
+
+    return 1 + max(lheight, rheight)
+
+def compute_diameter(root):
+    if root == None:
+        return 0
+    ans = [-sys.maxsize-1]
+    Height(root, ans)
+
+    return ans[0]
+
+# -------------------------------------------------------------------------------------------------------------------------
+
 # tuple pair for use in saving height, diameter for every node
 class Pair:
 
@@ -88,6 +116,7 @@ def fastDiameter(root):
 
     return p
 
+import sys
 # driver test function
 if __name__ == '__main__':
     root = Node(1)
@@ -95,6 +124,7 @@ if __name__ == '__main__':
     root.right = Node(3)
     root.left.left = Node(4)
     root.left.right = Node(5)
-    print(diameter(root))
-    print(fastDiameter(root).height)
-    print(fastDiameter(root).diameter)
+    # print(diameter(root))
+    # print(fastDiameter(root).height)
+    # print(fastDiameter(root).diameter)
+    print(compute_diameter(root))
