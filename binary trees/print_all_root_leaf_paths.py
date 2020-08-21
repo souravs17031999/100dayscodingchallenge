@@ -28,6 +28,8 @@
 #       /  \
 #      4    5
 # --------------------------------
+# TIME : 0(N), AS ALL NODES ARE PROCESSED ATMOST ONCE
+
 class Node:
 
     def __init__(self, data):
@@ -74,6 +76,57 @@ def printRootToLeaf(root):
         if temp.left:
             parent[temp.left] = temp
             stack.append(temp.left)
+
+# ------------------------------------------------------------------------------------------------
+# IF WE NEED NOT PRINT AND STORE THE PATHS IN A LIST THEN SLIGHT MODIFICATIONS :
+from collections import deque
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+# class Solution:
+#     def print_root_to_leaf(self, curr, parent):
+#         res = ""
+#         stack = deque()
+#         while curr:
+#             stack.append(curr)
+#             curr = parent[curr]
+#
+#         while len(stack) > 1:
+#             res = f"{res}{stack.pop().val}->"
+#
+#         if stack:
+#             res = f"{res}{stack.pop().val}"
+#
+#         return res
+#
+#     def binaryTreePaths(self, root: TreeNode) -> List[str]:
+#
+#         if root == None:
+#             return
+#
+#         parent = {}
+#         stack = deque()
+#         stack.append(root)
+#         parent[root] = None
+#         result = []
+#         while stack:
+#
+#             curr = stack.pop()
+#             if not curr.left and not curr.right:
+#                 result.append(self.print_root_to_leaf(curr, parent))
+#
+#             if curr.right:
+#                 stack.append(curr.right)
+#                 parent[curr.right] = curr
+#
+#             if curr.left:
+#                 stack.append(curr.left)
+#                 parent[curr.left] = curr
+#         return result
+
 
 if __name__ == '__main__':
     root = Node(1)
