@@ -14,13 +14,11 @@
 # For bottom up TABULATION :   
 ## * Firstly, always think about after what is the state after few no. of steps in the problem ?  
 ## * How can we now represent those states ? We need to understand about the dimensions of array/matrix.   
-## What are the important variables we need to keep about at that state ? if it is just one thing we care about, we can maintain  
-## in 1-d array, if its two thing (like position in a grid), then 2-d array, if more than that, then more n-d type arrays.  
+## What are the important variables we need to keep about at that state ? if it is just one thing we care about, we can maintain                        in 1-d array, if its two thing (like position in a grid), then 2-d array, if more than that, then more n-d type arrays.  
 ## So, it depends on what information is useful/important at a particular state.  
 # Resources :    
 ##  https://leetcode.com/discuss/interview-question/778035/dynamic-programming-patterns     
 ## https://leetcode.com/discuss/general-discussion/458695/Dynamic-Programming-Patterns
 # Identification of problem :
 ### Relating to knapsack problem :
-### if there are some items given to us and we have choice to either include it or not include it ? Also we have some constraints in form of some value
-### like bag in knapsack or some another value that we have to fill up to or add up to ?
+### if there are some items given to us and we have choice to either include it or not include it ? Also we have some constraints in form of some value   like bag in knapsack or some another value that we have to fill up to or add up to ?
