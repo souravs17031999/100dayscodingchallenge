@@ -22,3 +22,5 @@
 # Identification of problem :
 ### Relating to knapsack problem :
 ### if there are some items given to us and we have choice to either include it or not include it ? Also we have some constraints in form of some value   like bag in knapsack or some another value that we have to fill up to or add up to ?
+### Knapsack variations :  subset sum problem, equal sum partition, count of subset sums, Minimum Subset Sum Difference, Count the number of subset with a given difference, Target sum.
+### Unbounded knapsack : rod cutting problem, coin change-I, coin change-II
