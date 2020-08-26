@@ -17,9 +17,14 @@
 #
 #       0 1 2 3 ...... N
 #   1   0 1 2 3 ....... N
-#   2   0
+#   2   0 ...int_max or 1... *
 #   3   0
 #   5   0
+#
+# NOTE* : Second row is also initialized here, in the way that, it denotes that size of array is 1, and so if we want to make upto coins sum N,
+# so, either we can do it direclty or we can't do it anyhow, so in former case we can check it by dividing value at array by coin value, and in
+# latter case if not able to make upto N, then we will put INT_MAX.
+
 # Now, recurrence relations :
 for ():
     for ():
