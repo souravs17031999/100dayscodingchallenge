@@ -41,7 +41,8 @@
 #                    / \     / \        /\         /     \
 #                   /   \   /   \     /   \       /       \
 #                 .      .  .     .   .     .   C({1}, 3) C({}, 4)
-
+# ----------------------------------------------------------------------------------------
+# This problem is similar to Unbounded knapsack and also counting is there, so count subset sum logic is there.
 
 def compute_total_ways(coins, m, N):
 
