@@ -10,6 +10,13 @@
 # subtract the LCS from length of both strings.
 # Like LCS = "ek" which is present in both parts of final concatenation of string : "geekeke"
 #                                                                                      ____
+#
+# EX. "AGGTAB",
+#     "GXTXAYB"
+#
+# =>  "AGGXTXAYB" IS SHORTEST COMMON supersequence AS IF WE GO ITERATING OVER BOTH, IF BOTH OCCURS, THEN WE TAKE ONLY ONE OF THEM TO BE SHORTEST
+# OTHERWISE WE TAKE THAT ONCE AND ADD THAT IN RESULT STRING.
+# Therefore, these common occurence chars are actually LCS and we are ignoring that means we take away LCS from merge of both strings.
 # hence, output : m + n - LCS(m, n), where m, n is length of individual strings.
 # ------------------------------------------------------------------------------------------------------------------
 # TIME : 0(M * N)
