@@ -7,6 +7,14 @@
 # So, we would have to deeply think about how do we actually compute this using recursion tree visualization :
 # its' no more different than what we have seen in other problems
 # we make call to lcs("s1", "s2")
+#
+#               lcs("AXYT", "AYZX")
+#                    /        \
+#    LCS("AXY", "AYZX")       LCS("AXYT", "AYZ")
+#        /           \                     /              \
+# LCS("AX", "AYZ")  LCS("AXY", "AYZ")  LCS("AXY", "AYZ")  LCS("AXYT", "AY")
+#                        __________         __________
+#
 # now, we compare last two chars, and then if they are equal then we chop off that char from both string,
 # and then it will be 1 + lcs("s1-matching_char", "s2-matching_char")
 # similarly, if there is no match, then we would have to think , there is a competion between either of the chars being chopped off
@@ -30,17 +38,42 @@
 # Else compare values of L[i-1][j] and L[i][j-1] and go in direction of greater value.
 # This can be done using one while loop and two pointers i, j.
 
+
+# SIMPLE RECURISVE SOLUTION :
+def compute_max_subsequence_recr(s1, s2, m, n):
+    if m == 0 or n == 0:
+        return 0
+
+    if s1[m - 1] == s2[n - 1]:
+        return 1 + compute_max_subsequence_recr(s1, s2, m - 1, n - 1)
+
+    return max(compute_max_subsequence_recr(s1, s2, m, n - 1), compute_max_subsequence_recr(s1, s2, m - 1, n))
+
+
+# topdown memoized
+cache = {}
+def compute_max_subsequence_memo(s1, s2, m, n):
+    if m == 0 or n == 0:
+        return 0
+
+    if (m, n) in cache:
+        return cache[(m, n)]
+
+    if s1[m - 1] == s2[n - 1]:
+        cache[(m, n)] = 1 + compute_max_subsequence_memo(s1, s2, m - 1, n - 1)
+        return cache[(m, n)]
+
+    cache[(m, n)] = max(compute_max_subsequence_memo(s1, s2, m, n - 1), compute_max_subsequence_memo(s1, s2, m - 1, n))
+    return cache[(m, n)]
+
+
+
+# BOTTOM UP DP OPTIMIZED:
 def compute_max_subsequence(s1, s2):
 
     m, n = len(s1), len(s2)
 
-    dp = [[None] * (n + 1) for _ in range(m + 1)]
-
-    for i in range(m + 1):
-        dp[i][0] = 0
-
-    for i in range(n + 1):
-        dp[0][i] = 0
+    dp = [[0] * (n + 1) for _ in range(m + 1)]
 
     for i in range(1, m + 1):
         for j in range(1, n + 1):
@@ -55,3 +88,5 @@ def compute_max_subsequence(s1, s2):
 
 if __name__ == '__main__':
     print(compute_max_subsequence("AGGTAB", "GXTXAYB"))
+    print(compute_max_subsequence_recr("AGGTAB", "GXTXAYB", 6, 7))
+    print(compute_max_subsequence_memo("AGGTAB", "GXTXAYB", 6, 7))
