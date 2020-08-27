@@ -74,5 +74,3 @@ n = len(Y)
 
 print('Length of Longest Common Substring is',
 					LCSubStr(X, Y, m, n))
-
-# This code is contributed by Soumen Ghosh
