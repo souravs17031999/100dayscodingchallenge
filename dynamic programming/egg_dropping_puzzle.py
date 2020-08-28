@@ -33,6 +33,56 @@
 # -------------------------------------------------------------------------------------------------------
 # TIME : 0(n*k^2), SPACE: 0(n*k)
 
+# simple recursion
+
+import sys
+def compute_min_trials_recr(eggs, floors):
+
+    if floors == 0 or floors == 1:
+        return floors
+
+    if eggs == 1:
+        return floors
+
+    min_trial = sys.maxsize
+    for k in range(1, floors + 1):
+        temp = 1 + max(compute_min_trials_recr(eggs - 1, k - 1), compute_min_trials_recr(eggs, floors - k))
+        min_trial = min(min_trial, temp)
+
+    return min_trial
+
+
+
+## TOP down memoization :
+
+cache = {}
+import sys
+def compute_min_trials_memo(eggs, floors):
+
+    if floors == 0 or floors == 1:
+        return floors
+
+    if eggs == 1:
+        return floors
+
+    if (eggs, floors) in cache:
+        return cache[(eggs, floors)]
+
+    min_trial = sys.maxsize
+    for k in range(1, floors + 1):
+        temp = 1 + max(compute_min_trials_memo(eggs - 1, k - 1), compute_min_trials_memo(eggs, floors - k))
+        min_trial = min(min_trial, temp)
+
+    cache[(eggs, floors)] = min_trial
+    return min_trial
+
+
+# Some more optimizations :
+# We can also make use of cache while solving smaller subproblems.
+
+
+# BOTTOM UP DP TABULATION OPTIMIZED:
+
 import sys
 INT_MAX = sys.maxsize
 
@@ -60,3 +110,4 @@ def compute_min_trials(n, k):
 if __name__ == '__main__':
     n, k = 2, 100
     print(compute_min_trials(n, k))
+    print(compute_min_trials_memo(n, k))
