@@ -1,6 +1,8 @@
 def binary_search(l, start, end, key):
     while(start <= end):
-        middle = (start + end) // 2
+        middle = (start + end) // 2  # Caution : for larger inputs , typically more than 2^30 - 1, in order to arithmetic overflow,
+        # use middle = start + (end - start) // 2
+        # source : https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
         if key < l[middle]:
             end = middle - 1
         elif key > l[middle]:
