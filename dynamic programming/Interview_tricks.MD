@@ -30,4 +30,4 @@
 ## Unbounded knapsack : rod cutting problem, coin change-I, coin change-II
 ## Longest common subsequence (LCS) : longest common substring, printing LCS, shortest common supersequence, printing shortest common supersequence, string edit (insertions/deletions/replacement), minimum insertions/deletions,  longest palindrome subsequence, minimum deletion for palindrome, minimum insertions for palindrome, longest repeating subsequence, sequence pattern matching (if string is subsequence of another string).
 ## Matrix chain multiplication (MCM) : palindrome partition, minimum and maximum value of expression, evaluate boolean expression, scrambled string, egg dropping puzzle.
-## DP on Trees
+## DP on Trees : diameter of tree, max path sum from any node to any, max path sum from leaf to leaf, diameter of n-ary tree.
