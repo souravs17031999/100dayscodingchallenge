@@ -21,6 +21,55 @@
 #                                     |  | \  3.3 3.4
 #                                    4.4 1.1 2.2
 #                                    __  __
+# A simple solution is to place parenthesis at all possible places, calculate the cost for each placement and return the minimum value.
+# In a chain of matrices of size n, we can place the first set of parenthesis in n-1 ways. For example, if the given chain is of 4 matrices.
+# let the chain be ABCD, then there are 3 ways to place first set of parenthesis outer side: (A)(BCD), (AB)(CD) and (ABC)(D).
+# So when we place a set of parenthesis, we divide the problem into subproblems of smaller size. Therefore, the problem has optimal
+# substructure property and can be easily solved using recursion.
+
+# ----------------------------------------------------------------------------------------------------
+# SIMPLE RECURSION :
+# ----------------------------------------------------------------------------------------------------
+# i, j point to left most and right most index of the array and k denotes the point of break (bracketing).
+# We need to compute product for let's say we break at k, then for (i....k), and (k + 1.....j)
+# and also the cost for multiplying both answers got above.
+# This cost is manually obtained through observation that it will be simply, arr[i - 1] * arr[k] * arr[j].
+# So, we add up all these and get the minimum for all these possiblities.
+
+import sys
+def compute_multiple_recr(arr, i, j):
+    if i >= j:
+        return 0
+
+    min_product = sys.maxsize
+    for k in range(i, j):
+        temp_product = compute_multiple_recr(arr, i, k) + compute_multiple_recr(arr, k + 1, j) + arr[i - 1] * arr[k] * arr[j]
+        min_product = min(min_product, temp_product)
+
+    return min_product
+
+# ----------------------------------------------------------------------------------------------------
+# TOP DOWN MEMOIZATION :
+# ----------------------------------------------------------------------------------------------------
+
+cache = {}
+def compute_multiple_memo(arr, i, j):
+    if i >= j:
+        return 0
+
+    if (i, j) in cache:
+        return cache[(i, j)]
+
+    min_product = sys.maxsize
+    for k in range(i, j):
+        temp_product = compute_multiple_memo(arr, i, k) + compute_multiple_memo(arr, k + 1, j) + arr[i - 1] * arr[k] * arr[j]
+        min_product = min(min_product, temp_product)
+
+    cache[(i, j)] = min_product
+    return min_product
+
+
+# BOTTOM UP DP OPTIMIZED
 # Therefore simply recursion will be taking exponential time, hence we apply topdown/bottom up DP.
 # Here, we show bottom up DP.
 # -------------------------------------------------------------------------------------------------
@@ -35,37 +84,38 @@
 # import sys
 #
 # # Matrix Ai has dimension p[i-1] x p[i] for i = 1..n
-# def MatrixChainOrder(p, n):
-# 	# For simplicity of the program, one extra row and one
-# 	# extra column are allocated in m[][]. 0th row and 0th
-# 	# column of m[][] are not used
-# 	m = [[0 for x in range(n)] for x in range(n)]
+def MatrixChainOrder(p, n):
+	# For simplicity of the program, one extra row and one
+	# extra column are allocated in m[][]. 0th row and 0th
+	# column of m[][] are not used
+	dp = [[0 for x in range(n)] for x in range(n)]
+
+	# m[i,j] = Minimum number of scalar multiplications needed
+	# to compute the matrix A[i]A[i+1]...A[j] = A[i..j] where
+	# dimension of A[i] is p[i-1] x p[i]
+
+	# cost is zero when multiplying one matrix.
+	for i in range(1, n):
+		dp[i][i] = 0
+
+	# L is chain length.
+	for L in range(2, n):
+		for i in range(1, n-L+1):
+			j = i+L-1
+			dp[i][j] = sys.maxsize
+			for k in range(i, j):
+
+				# q = cost/scalar multiplications
+				q = dp[i][k] + dp[k+1][j] + p[i-1] * p[k] * p[j]
+				if q < dp[i][j]:
+					dp[i][j] = q
+
+	return dp[1][n-1]
 #
-# 	# m[i,j] = Minimum number of scalar multiplications needed
-# 	# to compute the matrix A[i]A[i+1]...A[j] = A[i..j] where
-# 	# dimension of A[i] is p[i-1] x p[i]
-#
-# 	# cost is zero when multiplying one matrix.
-# 	for i in range(1, n):
-# 		m[i][i] = 0
-#
-# 	# L is chain length.
-# 	for L in range(2, n):
-# 		for i in range(1, n-L+1):
-# 			j = i+L-1
-# 			m[i][j] = sys.maxint
-# 			for k in range(i, j):
-#
-# 				# q = cost/scalar multiplications
-# 				q = m[i][k] + m[k+1][j] + p[i-1]*p[k]*p[j]
-# 				if q < m[i][j]:
-# 					m[i][j] = q
-#
-# 	return m[1][n-1]
-#
-# # Driver program to test above function
-# arr = [1, 2, 3 ,4]
-# size = len(arr)
-#
-# print("Minimum number of multiplications is " +
-# 	str(MatrixChainOrder(arr, size)))
+# Driver program to test above function
+arr = [1, 2, 3 ,4]
+size = len(arr)
+
+print(f"Minimum number of multiplications is {compute_multiple_recr(arr, 1, size - 1)}")
+print(f"Minimum number of multiplications is {compute_multiple_memo(arr, 1, size - 1)}")
+print(f"Minimum number of multiplications is {MatrixChainOrder(arr,size)}")
