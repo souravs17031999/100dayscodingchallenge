@@ -87,5 +87,3 @@ arr = [10, 20, 60, 50, 30, 40]
 n = len(arr)
 k = 3
 print(findMax(arr, n, k))
-
-# This code is contributed by ashutosh450
