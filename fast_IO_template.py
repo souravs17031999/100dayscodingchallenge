@@ -1,7 +1,3 @@
-#!/usr/bin/env python
-# Taken from :
-# @credit : https://github.com/cheran-senthil/PyRival/blob/master/templates/template.py
-
 from __future__ import division, print_function
 
 import os
