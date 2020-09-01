@@ -7,6 +7,12 @@
 # General template  :
 ```
 
+def is_safe(board, row, col...){
+  //  conditions to check the valid placement
+  return condition1 and condition2 and .....
+}
+
+
 def solve(row, col):
     if col == board[row].length{
       base cases check and return answer
@@ -14,7 +20,7 @@ def solve(row, col):
 
     for val from 1 : 9 => {
       board[row][col] = value
-      if validplacement(row, col....){
+      if is_safe(row, col....){
         if solve(row, col + 1, board){
           return true
         }
