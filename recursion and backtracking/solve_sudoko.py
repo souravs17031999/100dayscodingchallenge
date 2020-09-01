@@ -38,7 +38,7 @@ def find_unassigned_location(mat, l):
     return False
 
 
-def solve_grid(mat):
+def solve(mat):
 
     l = [0, 0]
 
@@ -52,7 +52,7 @@ def solve_grid(mat):
         if is_valid(mat, row, col, num):
             mat[row][col] = num
 
-            if solve_grid(mat):
+            if solve(mat):
                 return True
 
             mat[row][col] = 0
@@ -77,7 +77,7 @@ if __name__ == '__main__':
     	[0, 0, 0, 0, 0, 0, 0, 7, 4],
     	[0, 0, 5, 2, 0, 6, 3, 0, 0]]
 
-    if(solve_grid(grid)):
+    if(solve(grid)):
         pretty_print(grid)
     else:
         print("No solution exists")
