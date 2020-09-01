@@ -36,7 +36,6 @@ def is_valid_box(mat, row, col):
     return True
 
 def is_valid(mat, row, col):
-
     return is_valid_row(mat, row) and is_valid_col(mat, col) and is_valid_box(mat, row - row % 3, col - col % 3)
 
 if __name__ == '__main__':
@@ -50,9 +49,18 @@ if __name__ == '__main__':
              [ '.', '.', '.', '4', '1', '9', '.', '.', '5' ],
              [ '.', '.', '.', '.', '8', '.', '.', '7', '9' ]]
 
+    valid = True
     for i in range(len(board)):
         for j in range(len(board)):
-            if not is_valid(board, i, j):
-                print("NOT VALID !")
+            if board[i][j] != '.':
+                if not is_valid(board, i, j):
+                    valid = False
+                    break
 
-    print("VALID")            
+        if not valid:
+            break
+
+    if valid:
+        print("VALID")
+    else:
+        print("INVALID")
