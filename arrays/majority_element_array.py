@@ -17,6 +17,14 @@
 # So, we need to do a second linear time pass to count and check just for the candidates and their count if greater than required N//2, N//3..
 # This will allow us to get exactly how many majority elements are present or there are none of them existent.
 # --------------------------------------------------------------------------------------------------------------------
+# Intution behind boyre moore voting algo :
+# EX. [7, 7, 5, 7, 5, | 5, 7 | 5, 5, 7, 7, | 5, 5, 5, 5]
+# The above bars suggests the indices wherever counter becomes 0 , now what does it signify ?
+# It signifies that number of total count of minority elements will be balanced our or cancelled by total count of majority elements.
+# As also, can be seen above in the first segment, second segment, third segment all the counts are same, therefore there can be no majority element
+# but we have to have count(majority) > count(minority) in the last fourth segment becasue of condition of  > [N/2] and only if it is true we
+# can have majority element otherwise there can't be any majority element.
+# -----------------------------------------------------------------------------------------------------------------------
 
 def find_majority(arr):
     array_size = len(arr)
@@ -92,7 +100,7 @@ class Solution:
 #                 return arr[i]
 #     return -1
 # ------------*----------------------
-# METHOD 1 STARTS
+# METHOD 1 STARTS => using hashmaps
 # TIME : 0(N), SPACE : 0(N)
 # def find_majority(arr):
 #     count = {}
