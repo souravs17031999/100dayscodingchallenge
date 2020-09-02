@@ -15,8 +15,22 @@
 
 # We swap both of those to produce next permutation => [1, 4, 5, 3, 2]
 
-# Now, we also reverse the array after the pointer "i" till last element, in order to make it lexigraphically (sorted order) to get the lowest rank possible in order to further 
+# Now, we also reverse the array after the pointer "i" till last element, in order to make it lexigraphically (sorted order)
+# to get the lowest rank possible in order to further
 # generate next permutations.
+
+# Intution for reversing ?
+# --------------------------------------------------------------------------------------------------------------------------------------------------
+# Intution behind reverse is that after swapping the i, j element, we have produced last permutation as descending section is there still,
+# so, we simply reverse to make it ascending section to get the lowest rank possible first.
+# EX. [1, 2, 3] => firstly we swap 2, 3 and then get [1, 3, 2] => then, we reverse after 2, that is no change.
+# Now, we simply swap 1, 2 => [2, 3, 1], if we observe then we will see that this is greatest permutation possible for the descending order seciton, and
+# so, we need to reverse it to get, reverse after 2, to get [2, 1, 3] (this is correct third permutation)
+# Then, we need to swap 1, 3 => [2, 3, 1] and now, we swap 2, 3 => [3, 2, 1] and again now if we don't reverse then we will directly jumpt to [1, 2, 3]
+# which is wrong totally, because then total we would have 5 permutation but we know we have 6 permutation, so we first reverse it => [3, 1, 2]
+# to get lower rank permutation first, now we again swap, 1, 2 = > [3, 2, 1] and reverse after 2 which does nothing = >
+# [3, 2, 1] (this is last permutation)
+# ----------------------------------------------------------------------------------------------------------------------------------------------------
 
 # [1, 4, 2, 3, 5] => will give us the exact next permutation.
 
@@ -50,10 +64,10 @@ def next_permutation(arr, n):
 
     # otherwise, simply swap i, j
     arr[i], arr[j] = arr[j], arr[i]
-    # reverse from after i + 1 to produce lexographic order.
+    # reverse from after i + 1 to produce lexographic order so that first of these permutations comes first.
     reverse(arr, i + 1, n - 1)
 
-# driver test function 
+# driver test function
 if __name__ == '__main__':
     arr = [4, 5, 6, 3, 2, 1]
     n = 6
