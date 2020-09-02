@@ -7,6 +7,7 @@ class mathemagica:
     # c(n, k) = n!/(n-k)!*k! = n(n - 1)(n - 2)(n - 3)....1 / ((n - k)(n - k - 1)....1)*(k(k-1)(k-2)......1)
     # now, n! = n(n - 1).....(n-k)(n-k-1).....1 and that cancels one part of denominator
     # so, we are left with c(n, k) = n(n-1).....(n-k+1) / k(k-1)......1
+    # TIME : 0(K), SPACE : 0(1)
     def binom(n, k):
         # if k is greater than n that means , c(n, k) = c(n, n - k) using properties of binomial , helps to reduce calculation
         if k > n - k:
