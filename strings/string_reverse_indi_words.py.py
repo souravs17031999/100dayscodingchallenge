@@ -14,7 +14,7 @@ def split(text):
     for i in range(1, len(text)):
         # if this is not whitespace, then it is char of last started string, so adding it to string
         if text[i] != ' ':
-            s += text[i]
+            s = "".join((s, text[i]))sourav
         # if this is whitespace, so we got our word, then it is appended in list
         if text[i] == ' ':
             l.append(s)
@@ -34,7 +34,7 @@ def reverse(text):
     # finally returning the overall string by joining the splitted words into a single string
     return " ".join(split_text)
 
-# main function    
+# main function
 if __name__ == '__main__':
     input_text = input().strip()
     print(f'your input is : {input_text}')
