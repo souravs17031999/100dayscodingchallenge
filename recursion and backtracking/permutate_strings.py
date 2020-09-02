@@ -7,6 +7,16 @@
 # First we have all chars in decision space, we fix one position and then keep going on till last decision char
 # and then backtrack and do similar for next position of char.
 # ------------------------------------------------------------------------------------------------
+# Every time we swap the element at first position denoted by l, with the current index in the loop and then recur for remaning part of string.
+# After the print of the string , we backtrack by undoing the earlier swap we did.
+          # 
+          #
+          #          A
+          #       /   |  \
+          #     ABC   BAC  CAB
+          #   /  |     / |    | \
+          # ABC  ACB  BAC BCA CAB CBA
+          #
 
 def permutate(a, l, r):
 
