@@ -12,9 +12,6 @@ if sys.version_info[0] < 3:
 def main():
     pass
 
-
-# region fastio
-
 BUFSIZE = 8192
 
 
@@ -82,8 +79,6 @@ else:
     sys.stdin, sys.stdout = IOWrapper(sys.stdin), IOWrapper(sys.stdout)
 
 input = lambda: sys.stdin.readline().rstrip("\r\n")
-
-# endregion
 
 if __name__ == "__main__":
     main()
