@@ -3,9 +3,11 @@
 # IDEA: first logic comes to mind is to check if for every possible one unit shifts , if we can reach the other string, then we can say they are rotations.
 # Next approach would be that we can make a copy of string and concatenate it with first string, then check if second string occurs in it, if it has to be rotated, then it must be occuring in some part (substring) of the first string.
 # Both of the above approach will take 0(N*N), where N lengths of two strings and 0(N) space.
-# EDIT : OVERALL WE CAN CHOOSE KMP VS BOYER MOORE FOR string matching step done after concatenation, KMP is best suited for short sequences 
-# and Boyer moore is best suited for large sequences , one of which when chosen will bring the overall complexity as 0(N) unlike previously 
+# EDIT : OVERALL WE CAN CHOOSE KMP VS BOYER MOORE FOR string matching step done after concatenation, KMP is best suited for short sequences
+# and Boyer moore is best suited for large sequences , one of which when chosen will bring the overall complexity as 0(N) unlike previously
 # which was 0(N*N).
+
+
 def rotate_check(str1, str2):
     str_length2 = len(str1)
     str_length1 = len(str2)
