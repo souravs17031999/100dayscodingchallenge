@@ -9,7 +9,7 @@
 # ------------------------------------------------------------------------------------------------
 # Every time we swap the element at first position denoted by l, with the current index in the loop and then recur for remaning part of string.
 # After the print of the string , we backtrack by undoing the earlier swap we did.
-          # 
+          #
           #
           #          A
           #       /   |  \
