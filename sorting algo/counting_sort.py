@@ -47,7 +47,8 @@ def main_counting_sort(arr, n):
 #     return arr
 #
 #     # Note  : Counting sort for Negative numbers
-#     # idea is to store counts but for postive numbers only by mapping negative numbers to their positive counterparts by taking how much far my number is
+#     # idea is to store counts but for postive numbers only by mapping negative numbers to their positive
+#     # counterparts by taking how much far my number is
 #     # from minimum number, as minimum will be -ve and so we can get positive indices by subracting -ve numbers.
 #     # and then when we need to get back our original numbers, we again add up the min and current element.
 #     def counting_sort_neg(arr, n):
