@@ -1,8 +1,10 @@
 # program to convert roman literals to integer
 # d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000} dictionery of roman to numeric
-# logic is to traverse the string one by one, and if value of first char is less than second one, then calulate the difference between the two values and sum up them, otherwise sum the current position values.
+# logic is to traverse the string one by one, and if value of first char is less than second one, then calulate the difference between the two values and sum up them,
+# otherwise sum the current position values.
 # also, return the exact sum only if the above pattern is not followed, otherwise sum the last char value also with the overall sum calculated.
 # to control the above behaviour, we are using flag var
+
 def convert_rom_to_int(s):
     d = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
     sum = 0
@@ -32,3 +34,4 @@ if __name__ == '__main__':
     assert convert_rom_to_int('IX') == 9
     assert convert_rom_to_int('I') == 1
     assert convert_rom_to_int('III') == 3
+    assert convert_rom_to_int('MCMIV') == 1904
