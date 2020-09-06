@@ -25,6 +25,29 @@ def check_palindrome(s):
         end -= 1
     return True
 
+# If added constraints, that we need to ignore spaced and other symbols except numbers and whitespaces, even ignore the cases also.
+
+#code
+from sys import stdin, stdout
+
+def check_palindrome(s):
+    start, end = 0, len(s) - 1
+    while start <= end:
+
+        if not s[start].isalnum():
+            start += 1
+            continue
+        if not s[end].isalnum():
+            end -= 1
+            continue
+
+        if s[start].lower() != s[end].lower():
+            return "NO"
+
+        start += 1
+        end -= 1
+    return "YES"
+
 if __name__ == '__main__':
     assert check_palindrome("geeksforgeeks") == False
     assert check_palindrome("geeksoskeeg") == True
