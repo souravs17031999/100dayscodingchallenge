@@ -1,5 +1,6 @@
 # program to find unique number in a array where every element is repeated thrice except one
-# IDEA: Naive solution is to use sorting and check which one is non repeating, then one optimized time solution is to use hashing and keep counter for
+# IDEA: Naive solution is to use sorting and check which one is non repeating, then one optimized time solution is
+# to use hashing and keep counter for
 # occurences and check whose count is only "1".
 # Most efficient logic is to observe that the numbers will be either of form 3N or 3N + 1 and that means if converted to binary , then also
 # the bits will be in the either of the two form.
