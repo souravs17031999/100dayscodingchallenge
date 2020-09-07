@@ -9,6 +9,17 @@
 # In a way, we have partitioned the array where one half is containing all those which have set bits in the kth pos as found above, and "x" can be find by either one half.
 # So, we consider all those number which have set bits in the same pos, and extract "x" by XORing all of them.
 # This solution takes TIME : 0(N) , SPACE: 0(1)
+# ----------------------------------------------------------------------------------------------------------------------------------------------
+# More better intuition :
+# The first step is to do XOR of all elements present in array.
+# So we have XOR of x and y after the first step. Let the value of XOR be xor2. Every set bit in xor2 indicates that the corresponding bits in x
+# and y have values different from each other. For example, if x = 6 (0110) and y is 15 (1111), then xor2 will be (1001), the two set bits in xor2
+# indicate that the corresponding bits in x and y are different. In the second step, we pick a set bit of xor2 and divide array elements in two
+# groups. Both x and y will go to different groups. In the following code, the rightmost set bit of xor2 is picked as it is easy to get rightmost
+# set bit of a number. If we do XOR of all those elements of array which have the corresponding bit set (or 1),
+# then we get the first unique number.
+# -----------------------------------------------------------------------------------------------------------------------------------------------
+
 
 def two_unique_numbers(arr):
     # find overall XOR
