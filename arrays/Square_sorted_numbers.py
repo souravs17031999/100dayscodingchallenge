@@ -1,5 +1,6 @@
 # Program taking input of sorted list of negative and positive numbers, and we need to
-# give the output in the sorted order.
+# give the output: squares of numbers in the sorted order.
+
 # So, first of all, what is the form of output we need to return ? so, let's assume we can
 # return a newly created list of sorted squares of the input list.
 # Naive approach would be to simply square the numbers and apply in-built sort ,
