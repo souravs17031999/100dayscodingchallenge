@@ -27,6 +27,7 @@ def solve(row, col):
         board[row][col] = 0
       }
     }
+    return False
 
 ```
 
