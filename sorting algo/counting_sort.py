@@ -5,6 +5,9 @@
 from sys import stdin, stdout
 
 # idea is to compute first simply compute frequencies, then prefix sum, then we need to again find the position for the original array
+# TIME : 0( N + K )
+# SPACE : 0(K)
+
 def main_counting_sort(arr, n):
     k = max(arr) + 1
     # output for sorted array
@@ -15,6 +18,8 @@ def main_counting_sort(arr, n):
     for i in range(len(arr)):
         count[arr[i]] += 1
     # compute prefix sum
+    # Reason : count[i] aggrgated sum at i, tells us that how many elements are less than element at i and arr[i] - 1 will be the last index of
+    # occurence, so we keep copying it and decrementing it.
     for i in range(1, k):
         count[i] += count[i - 1]
     # finally, placing input elements in their correct positions , going from back to produce stable sort ,
