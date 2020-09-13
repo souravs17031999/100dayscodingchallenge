@@ -2,6 +2,21 @@
 # IDEA: first naive logic is to simply go over each bit and check if it is set or not which on worst case takes 0(N) time complexity.
 # Second faster method is to use Brian Kernighan’s Algorithm : it basically says to AND two consecutive decreasing numbers starting from where the number was given and in every iteration it removes set bits from end, so effectively we can count how many iterations, that many set bits are there.
 # This takes theta(no. of set bits) but then in worst case, every bit is set, so 0(lg(n))
+
+# ------------------------------------------------------------------------------------------
+# Most simple solution in 0(1)
+
+class Solution:
+    def hammingWeight(self, n: int) -> int:
+        res = 0
+        for i in range(32):
+            if n & 1:
+                res += 1
+
+            n = n >> 1
+
+        return res
+
 def count_bits(x):
     count = 0
     while (x > 0):
