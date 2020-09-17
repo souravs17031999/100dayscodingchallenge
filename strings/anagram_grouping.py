@@ -4,6 +4,10 @@
 # like we get tuple for one of the word : ('e', 'a', 't')
 # and then other words will be appended to the same order of
 # lists like "ate" will be also ('e', 'a', 't').
+
+# -------------------------------------------------------------------------------------------
+# TIME : 0(M*N*log(N))
+
 import collections
 def main(strs):
     ans = collections.defaultdict(list)
