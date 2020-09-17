@@ -8,6 +8,8 @@
 # -------------------------------------------------------------------------------------------
 # TIME : 0(M*N*log(N))
 
+# Using Trie can improve time complexity with extra cost of space.
+
 import collections
 def main(strs):
     ans = collections.defaultdict(list)
@@ -18,3 +20,6 @@ def main(strs):
 if __name__ == '__main__':
     l = ['eat', 'tea', 'tan', 'ate', 'nat', 'bat']
     main(l)
+
+    
+    
