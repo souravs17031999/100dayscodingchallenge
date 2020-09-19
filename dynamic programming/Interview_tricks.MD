@@ -26,8 +26,8 @@
 # Identification of problem :
 ### Relating to knapsack problem :
 ### if there are some items given to us and we have choice to either include it or not include it ? Also we have some constraints in form of some value   like bag in knapsack or some another value that we have to fill up to or add up to ?
-## Knapsack variations :  subset sum problem, equal sum partition, count of subset sums, Minimum Subset Sum Difference, Count the number of subset with a given difference, Target sum.
-## Unbounded knapsack : rod cutting problem, coin change-I, coin change-II
-## Longest common subsequence (LCS) : longest common substring, printing LCS, shortest common supersequence, printing shortest common supersequence, string edit (insertions/deletions/replacement), minimum insertions/deletions,  longest palindrome subsequence, minimum deletion for palindrome, minimum insertions for palindrome, longest repeating subsequence, sequence pattern matching (if string is subsequence of another string).
-## Matrix chain multiplication (MCM) : palindrome partition, minimum and maximum value of expression, evaluate boolean expression, scrambled string, egg dropping puzzle.
+## Knapsack variations (we can't take one item more than once) :  subset sum problem, equal sum partition, count of subset sums, Minimum Subset Sum Difference, Count the number of subset with a given difference, Target sum.
+## Unbounded knapsack (we can take same item more than once) : rod cutting problem, coin change-I, coin change-II
+## Longest common subsequence (LCS) (when two strings are given or one string is given and another can be some function of other) : longest common substring, printing LCS, shortest common supersequence, printing shortest common supersequence, string edit (insertions/deletions/replacement), minimum insertions/deletions,  longest palindrome subsequence, minimum deletion for palindrome, minimum insertions for palindrome, longest repeating subsequence, sequence pattern matching (if string is subsequence of another string).
+## Matrix chain multiplication (MCM) (when we have to apply operations one by one for all possible places/values) : palindrome partition, minimum and maximum value of expression, evaluate boolean expression, scrambled string, egg dropping puzzle.
 ## DP on Trees : diameter of tree, max path sum from any node to any, max path sum from leaf to leaf, diameter of n-ary tree.
