@@ -1,10 +1,22 @@
 # Program to clone a doubly linked list where one of the pointer is similar to next but the other pointer is a random pointer pointing
 # to any random pointer (maybe pointing to self node)
-# IDEA: logic is to duplicate the every node and insert at its corresponding position, then, we have list of double it's original size, which consist of
+
+# Firstly, we need to carefully understand the question because it's not trivial to find the random ptr here and map it, because once we are at some position
+# in the linked list (singly), we can't move back or jump ahead for mapping random pointers.
+# IDEA: So, first idea that comes to mind is to use some kind of hashing so improve these accesses (which are expensive for random ptr to move around)
+# so that mapping would be easier. So, we create a hashMap where key is original node add, and value is cloned node add.
+# Now, again we traverse the original linked list, and create the wirings for both next and random using the hashtable becasue we can simply adjust the ptr
+# as we have saved them in the hashMap.
+# TIME : - 0(N), SPACE : 0(N)
+
+# Efficient, logic is to duplicate the every node and insert at its corresponding position, then, we have list of double it's original size, which consist of
 # original list and newly inserted nodes
-# Then, we need to get random nodes which can be fetched in 0(1) time by using orignal.next.random = original.random.next
+# Then, we need to get random nodes which can be fetched in 0(1) time by using original.next.random = original.random.next
 # Now, we need to simply detach our newly cloned list against original input list so that we do not modify original list given to us in the form of input.
 # Below is most optimized version in TIME : 0(N), N IS SIZE OF LINKED LIST, SPACE : 0(1)
+Old List: A --> B --> C --> D
+InterWeaved List: A --> A' --> B --> B' --> C --> C' --> D --> D'
+
 
 class Node:
 
@@ -69,38 +81,38 @@ class LinkedList:
 #------------------
 # APPROACH - 2
 # USING IDEA OF HASHING
-#---------------------
-# def clone(self, head):
-#
-#     if not head:
-#         raise Exception ("Linked list is empty !!")
-#         return
-#
-#     ptr = head
-#     count = 0
-#     LinkedList.Position_MAP[count] = ptr.random
-#     new_head = Node(ptr.data)
-#     temp = new_head
-#     ptr = ptr.next
-#
-#     while ptr:
-#         node = Node(ptr.data)
-#         temp.next = node
-#         temp = node
-#         count += 1
-#         LinkedList.Position_MAP[count] = ptr.random
-#         ptr = ptr.next
-#
-#     ptr = new_head
-#     count = 0
-#     while ptr:
-#         ptr.random = LinkedList.Position_MAP[count]
-#         count += 1
-#         ptr = ptr.next
-#
-#     return new_head, LinkedList.Position_MAP
+#"""
+# Definition for a Node.
+class Node:
+    def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
+        self.val = int(x)
+        self.next = next
+        self.random = random
+"""
 
-# driver function
+class Solution:
+    def copyRandomList(self, head: 'Node') -> 'Node':
+
+        if not head:
+            return head
+
+        map = {}
+        ptr = head
+        while ptr:
+            map[ptr] = Node(ptr.val)
+            ptr = ptr.next
+
+        ptr = head
+        while ptr:
+            if ptr.next != None:
+                map[ptr].next = map[ptr.next]
+            if ptr.random != None:
+                map[ptr].random = map[ptr.random]
+            ptr = ptr.next
+
+        return map[head]
+
+        
 if __name__ == '__main__':
     head = Node(1)
     node1 = Node(2)
