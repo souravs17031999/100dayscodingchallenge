@@ -6,9 +6,10 @@
 # ------------------------------------------------------------------------------------------------
 # Here, Niave solution will be to generate all the substrings and check if any char repeat, then don;t take into account
 # but if chars don't repeat, then take this and update the max length obtained so far.
-# But this will take 0(N^3).
+# But this will take 0(N^3) and Space complexity : O(min(n, m)).
+
 # Now, let's use window sliding technique in combination with hashtable (sets)
-# TIME : 0(N), SPACE : 0 (1)
+# TIME : 0(N), and Space complexity : O(min(n, m))
 
 #code
 from sys import stdin, stdout
