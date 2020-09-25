@@ -8,30 +8,50 @@
 # the element is present in this space or not.
 # TIME : 0(lg(N)), space : 0(1)
 
-def search_rotate(arr, key):
-    # setting initial pointers
-    low, high = 0, len(arr) - 1
-    while low <= high:
+"""
+            No rotated:
+            1 2 3 4 5 6 7
+                 mid
+                 
+            left rotated: pivot at the left side of the origin sorted array, A[mid] >= A[left]
+            3 4 5 6 7 1 2
+                 mid
+            search in A[left] ~ A [mid] if A[left] <= target < A[mid] else, search right side
+            
+            right rotated: pivot at the right side of the origin sorted array, A[mid] < A[left]
+            6 7 1 2 3 4 5
+                 mid          
+            search in A[mid] ~ A[right] if A[mid] < target <= A[right] else, search left side
 
-        # middle will finally return the searched element
-        mid = (low + high) // 2
+"""
 
-        # find the pivot element between the segments
-        if arr[mid] == key:
-            return mid
 
-        # this means that right half is sorted arr[mid....high]
-        elif arr[mid] <= high:
-            if arr[mid] < key <= high:
-                low = mid + 1
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        low, high = 0, len(nums) - 1
+        
+        while low <= high:
+            
+            mid = (low + high) // 2
+            
+            if nums[mid] == target:
+                return mid
+            
+            if nums[mid] <= nums[high]:
+                if nums[mid] < target <= nums[high]:
+                    low = mid + 1
+                
+                else:
+                    high = mid - 1
+            
             else:
-                high = mid - 1
-        # this means that left half is sorted arr[low...mids]
-        else:
-            if low <= key < arr[mid]:
-                high = mid - 1
-            else:
-                low = mid + 1
+                
+                if nums[low] <= target < nums[mid]:
+                    high = mid - 1
+                else:
+                    low = mid + 1
+        
+        return -1
 
 
 # driver function
