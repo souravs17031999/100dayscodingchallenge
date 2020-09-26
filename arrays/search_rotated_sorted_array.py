@@ -1,6 +1,9 @@
 # Program to search in sorted rotated array
 # IDEA: Firstly we can either directly search the array using linear search in 0(N) but that is inefficient,
 # and also we can't use direct normal binary search as this array is not only sorted but also rotated so indices positions will change.
+
+# Observation : Sorted rotated arrays are like two different sorted arrays appended to each other.
+
 # We have to use some modified use of binary search but we have to use it since array is sorted and can be sorted in 0(lg(N)).
 # Finally, using rotated concept, we can use this fact to solve this using the fact that if arr[mid] is less than high pointer, then this means
 # the high pointer is unchanged in binary search so, it means this right half is sorted and then we can check if element is actually in this space.
@@ -25,6 +28,15 @@
 
 """
 
+# Follow up =>
+# If the array contains duplicates, how would solution change (if at all change) ?
+# Actually, problem would be if duplicates keep occuring like , [10, 10, 10, 10, 10, 5, 8, 8, 9, 10], then monotonic increasing or decreasing sequence would break, so 
+# now not all the search spaces would allow binary search to occur.
+# So, there would be some search spaces where we would apply binary search and some search spaces where we would have to search linearly, because in that case 
+# reduction in the search space would be only by 1.
+# Hence, worst time complexity would move up to 0(N) instead of log(N).
+
+# ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
