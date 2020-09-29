@@ -16,28 +16,6 @@ def generate_board():
     
     return board
 
-
-def equal_pisces(p1, p2, p3):
-    if p1 == ' ':
-        return False 
-    
-    return p1 == p2 == p3
-
-def has_won(board):
-    
-    # check for rows and columns
-    for i in range(3):
-        # check rows 
-        if equal_pisces(board[i][0], board[i][1], board[i][2]):
-            return True
-        # check cols
-        if equal_pisces(board[0][i], board[1][i], board[2][i]):
-            return True# Check if the given tic tac toe board is in won state (won the game)
-# Assuming each cell on the board is " ", "X", "O"
-
-# Design 3 * 3 board
-
-
 # ---------------------------- Valid tic-tac-toe board -----------------------------------------------
 def check_win_char(board, player):
     
@@ -125,9 +103,17 @@ def has_won(board):
     
     return False
 
-# ------------------ Generate tic-tac-toe ---------------------------------------------------------
-
-
+# --------------------------------------------------------- Take Move on board ------------------------------------------------------------------------------
+# move : tuple(x, y, player) => (x, y) is position to fill
+def move_board(board, move):
+    
+    if move[2] == 'X':
+        board[move[0]][move[1]] = 'X'
+    elif move[2] == 'O':
+        board[move[0]][move[1]] = 'O'
+    else:
+        board[move[0]][move[1]] = ' '
+        
 
 if __name__ == '__main__':
     
@@ -138,21 +124,4 @@ if __name__ == '__main__':
     print(has_won(board))
     print(convert_board_to_int(board))
     print(check_valid_board(board))
-    
-    
-    # check diagonals
-    if equal_pisces(board[0][0], board[1][1], board[2][2]):
-        return True
-    
-    if equal_pisces(board[0][2], board[1][1], board[2][0]):
-        return True
-    
-    return False
-
-if __name__ == '__main__':
-    board = [['X', 'X', 'O'], 
-             ['O', 'X', 'X'], 
-             ['O', 'O', 'O']]
-    
-    print(has_won(board))
     
