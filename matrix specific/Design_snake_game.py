@@ -1,3 +1,6 @@
+# Using deque to represent SNAKE because it will be most logically correct and we can use HashSet to make list of all visited positions.
+# Given, height and width of the window screen and food is a list of positions [x, y].
+
 from collections import deque 
 from sys import stdin, stdout
 class Snake:
