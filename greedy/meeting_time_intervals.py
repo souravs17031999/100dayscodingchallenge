@@ -4,6 +4,7 @@
 # meeting time intervals = [[0, 30],[5, 10],[15, 20]]
 
 # after sorting on finish : [[5, 10], [15, 20], [0, 30]]
+# TIME : 0(N * log(N)), SPACE : 0(1)
 
 def compute_meeting_room(arr):
     
