@@ -49,6 +49,60 @@ def sorted_square(arr, n):
 
     return temp
 
+# ------------------------------ More clear and concise using two pointer method , one at first and another at last --------------------------------------------------------
+class Solution:
+    def sortedSquares(self, A: List[int]) -> List[int]:
+        temp = [None] * len(A)
+        left, right = 0, -1
+        idx = len(A) - 1
+        while idx >= 0:
+            if A[left] * A[left] >= A[right] * A[right]:
+                temp[idx] = A[left] * A[left]
+                left += 1
+            else:
+                temp[idx] = A[right] * A[right]
+                right -= 1
+            
+            idx -= 1
+        
+        return temp
+    
+ 
+# -------------------------------- More transformation equation applied to each applied : a * (x ** 2) + b * (x) + c ----------------------------------------------------
+f = lambda  x, a, b, c : a * (x ** 2) + b * (x) + c
+
+def sort_transform(arr, a, b, c, N):
+    
+    left, right = 0, N - 1
+    temp = [None] * N
+    idx = N - 1 if a >= 0 else 0
+    
+    while left <= right:
+        l, r = f(arr[left], a, b, c), f(arr[right], a, b, c)
+        if a >= 0:
+            if l >= r:
+                temp[idx] = l
+                idx -= 1
+                left += 1
+            else:
+                temp[idx] = r
+                idx -= 1
+                right -= 1
+        
+        else:
+            if l >= r:
+                temp[idx] = r
+                idx += 1
+                right -= 1
+            else:
+                temp[idx] = l
+                idx += 1
+                left += 1
+            
+    
+    return temp
+
+
 if __name__ == '__main__':
     assert sorted_square([-9, -2, 0, 2, 3], 5) == [0, 4, 4, 9, 81]
     assert sorted_square([-4, -1, 0, 3, 10], 5) == [0, 1, 9, 16, 100]
