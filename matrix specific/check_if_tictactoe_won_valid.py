@@ -3,6 +3,20 @@
 
 # Design 3 * 3 board
 
+# ----------------------------- Generate board -----------------------------------------------------------------------
+def generate_board():
+    board = []    
+    for i in range(19683):
+        c = i 
+        temp = []
+        for j in range(9):
+            temp.append(int(c%3))
+            c /= 3
+        board.append(temp)    
+    
+    return board
+
+
 def equal_pisces(p1, p2, p3):
     if p1 == ' ':
         return False 
