@@ -11,3 +11,4 @@
 * Next smalller to right
 * Next smaller to left
 * Logic is same for all four above as in we need to use stack for the processing and maintain only useful element in the stack and pop out all not useful elements.
+* When for right, fill in from right, when for left, fill in from left.
