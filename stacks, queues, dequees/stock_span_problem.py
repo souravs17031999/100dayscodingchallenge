@@ -11,6 +11,51 @@
 # So, we maintain a stack of current useful elements and pop all the not useful elements.
 # TIME : 0(N), SPACE : 0(N)
 
+# --------------------- Concise and clear code ----------------------------------------------------------------------------------------
+# This problem is very similar to finding the neearest greater to the left as we are spanning to the left consecutively and stopping as soon as we find something greater
+# that itself.
+# So, we can apply the same logic to find the indices for the nearest greater to left, and then res[i] = i - stack[-1]
+# as i is current index we are looping, then stack top is having the answer for the nearest greater to left (till where all elements are smaller than or equal to itself)
+
+from collections import deque 
+class StockSpanner:
+
+    def __init__(self):
+        self.res = []
+        self.stock = []
+
+    def compute(self):
+        
+        stack = deque()
+        for i in range(len(self.stock)):
+
+            while stack and self.stock[i] >= self.stock[stack[-1]]:
+                stack.pop()
+
+            if not stack:
+                self.res.append(1)
+            else:
+                self.res.append((i - stack[-1]))
+
+            stack.append(i)
+    
+    def next(self, price):
+        self.stock.append(price)
+        self.compute()
+        return self.res[-1]
+        
+if __name__ == '__main__':
+    
+    obj = StockSpanner()
+    arr = [100, 80, 60, 70, 60, 75, 85]
+    for i in arr:
+        print(obj.next(i))
+    
+    
+
+
+
+# Alternate method but same approach :
 from collections import deque
 
 def compute_span(arr):
