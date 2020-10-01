@@ -15,6 +15,18 @@
 # the interval in the output array, otherwise simply add the next intevral into the output array and update the current interval.
 # TIME : 0(N * log(N)), SPACE : 0(N)
 # ------------------------------------------------------------------------------------------------------------------
+# Why sorting is required in first place ?
+# So, there's this mathematical prove that after sorting we get all subintervals to be merged in contiguos runs of sorted list.
+# Also, we can visualize this as shown below : 
+# [(1, 9), (2, 5), (19, 20), (10, 11), (12, 20), (0, 3), (0, 1), (0, 2)]
+#                            ||
+#                             ^
+# After sorting, 
+# [(0, 3), (0, 1), (0, 2), (1, 9), (2, 5), (10, 11), (12, 20), (19, 20)]
+#   ______________________________________  ______    ________________
+# There are 3 contiguos runs of sorted subintervals which can be merged.
+# ---------------------------------------------------------------------------------------------------------------
+
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         if len(intervals) <= 1:
