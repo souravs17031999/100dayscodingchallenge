@@ -69,7 +69,19 @@ class Graph:
 # Therefore, we need to maintain a set, which can contain recent added visited nodes
 # for the current node DFS, and we need to push whenever we see a node in the current DFS
 # and pop it from the this set when we don't see a cycle.
+#
+#                         {4}
+#                        ^
+#                        <
+#                       /
+#                      /
+#                   {3}
+#               .... 
+#          .....
+# In directed graph, we can see that in directed graph, going from 3, and call dfs from 4, we again encounter 3, but problem is there is no cycle here, hence, we need to check
+# if in the current recursion stack, we visited already encountered node, then it will be called as cycle detected otherwise not.
 # ------------------------------------------------------------
+
     def DFS_directed(self, v, visited, recurStack):
 
         visited.add(v)
