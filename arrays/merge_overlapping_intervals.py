@@ -13,7 +13,7 @@
 # and can be done in only one linear pass.
 # We start with adding the first interval in the output array and check if the overlap occurs, then we need to update the ending time of
 # the interval in the output array, otherwise simply add the next intevral into the output array and update the current interval.
-# TIME : 0(N), SPACE : 0(N)
+# TIME : 0(N * log(N)), SPACE : 0(N)
 # ------------------------------------------------------------------------------------------------------------------
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
