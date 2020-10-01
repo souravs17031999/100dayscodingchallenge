@@ -25,7 +25,9 @@ class Graph:
 # Now, it may be possible that graph is disconnected, so in one of the graph cycle exists,
 # and in one not, and if we just start from that graph then we are not able to find the cycle,
 # so, we need to DO DFS for each vertex.
-
+# Basically, if we are going in a DFS traversal and if we encounter a node that is already visited and it is also not the parent of current node, then it surely 
+# means that we have visited this node earlier and this is due to cycle in the graph because otherwise only case that remains if not cycle is that if it parent of the node
+# but since it's not parent so, we are meeting this node again after few calls that proves that we have a cycle in the graph.
 # -----------------------------------------------------------------
     # modified DFS
     def DFS_undirected(self, v, visited, parent):
