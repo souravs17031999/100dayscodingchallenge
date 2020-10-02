@@ -17,6 +17,7 @@
 # Explanation: [[3,1]] is also accepted.
 #
 # ------------------------------------------------------------------------------------------------------------------------------------------------------------
+# This is very similar question to finding bridges in the graph.
 
 from collections import defaultdict as dd 
 class Solution:
