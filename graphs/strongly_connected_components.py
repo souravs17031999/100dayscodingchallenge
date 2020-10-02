@@ -108,8 +108,8 @@ class Graph:
         visited = set()
         while stack:
             curr = stack.pop()
-            if i not in visited:
-                g.DFS(i, visited)
+            if curr not in visited:
+                g.DFS(curr, visited)
                 print()
 
 if __name__ == '__main__':
