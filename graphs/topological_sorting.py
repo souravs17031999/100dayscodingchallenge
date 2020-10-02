@@ -1,5 +1,6 @@
-# Program to do topological sorting
+# Program to do topological sorting of the given graph.
 # Two algorithms are considered....
+#v
 # Firstly, it's a slight modification of DFS as in DFS here also we need to go in one direction but also
 # we need to maintain a condition that for any given (u -- > v), we need that u should be coming before V.
 # This is highly useful in package dependency graphs, scheduling algorithms etc.
@@ -7,6 +8,7 @@
 # only when all of its adjacent vertices are finished exploring, and then after going through all the
 # nodes, we can simply pop off the stack elements and pring them.
 # NOTE : topological SORTING / ORDERING IS ONLY POSSIBLE FOR DAG (DIRECTED ACYCLIC GRAPH)
+# DAG : [directed + acyclic graph]
 # IF THERE IS ANY CYCLE, THEN WE WILL NOT BE ABLE TO PERFORM topological ORDERING.
 # BELOW DFS APPROACH WILL NOT BE ABLE TO DETECT IF THERE IS ANY CYCLE OR NOT, AND WILL RESULT
 # IN SOME ORDERING ANYHOW.
@@ -18,6 +20,16 @@
 #         />\>
 #       4   2
 # -----------------------------------------------------------
+#
+#     / -> 2 ---\
+#   1          4        (DAG, CONTAINS NO CYCLE)  
+#    \ -> 3 --/
+#
+#
+#   1 ------> 4
+#   |        |         (NOT DAG, CONTAINS CYCLE)
+#   2 <------ 3
+#
 # Now, if we run normal DFS from 0, then we will get : 0, 1, 2, 3, 4
 # But we need : 3, 4, 0, 1, 2 or 4, 3, 0, 1, 2 or 4, 3, 0, 2, 1 or 3, 4, 0, 1, 2
 # So, the logic is to keep a stack and push the current element onto stack, only when we explored
