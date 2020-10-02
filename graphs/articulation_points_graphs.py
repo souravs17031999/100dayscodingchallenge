@@ -63,4 +63,65 @@
 # -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # TIME : 0(E + V) due to single traversal of the entire graph.
 
+from collections import defaultdict as dd, deque 
 
+def dfs(u, visited, disc, low, parent, a_point, graph):
+    
+    visited[u] = True
+    disc[u] = dfs.timer
+    low[u] = dfs.timer
+    dfs.timer += 1  # static variable 
+    children  = 0
+    
+    for v in graph[u]:
+        if not visited[v]:
+            children += 1
+            parent[v] = u
+            dfs(v, visited, disc, low, parent, a_point, graph)
+            
+            # due to back edge (if any) , low will be updated and will be lesser than previous
+            low[u] = min(low[u], low[v])
+            
+            # case 1 
+            if parent[u] == -1 and children > 1:
+                a_point[u] = True
+            
+            # case 2
+            if parent[u] != -1 and low[v] >= disc[u]:
+                a_point[u] = True
+        
+        # due to back edge check, here we actually update the low 
+        elif v != parent[u]:
+            low[u] = min(low[u], disc[v])
+
+def compute_articulation(nodes, graph):
+    
+    disc = [0] * nodes
+    low = [0] * nodes
+    parent = [-1] * nodes
+    visited = [False] * nodes
+    a_point = [False] * nodes
+    
+    dfs.timer = 0
+    for i in range(nodes):
+        if not visited[i]:
+            dfs(i, visited, disc, low, parent, a_point, graph)
+    
+    for i in range(len(a_point)):
+        if a_point[i]:
+            print(i)
+    
+
+if __name__ == '__main__':
+    graph = dd(list)
+    graph[0].append(2)
+    graph[2].append(0)
+    graph[0].append(3)
+    graph[3].append(0)
+    graph[1].append(0)
+    graph[0].append(1)
+    graph[2].append(1)
+    graph[1].append(2)
+    graph[3].append(4)
+    graph[4].append(3)
+    compute_articulation(5, graph)
