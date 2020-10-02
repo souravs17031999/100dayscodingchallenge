@@ -16,6 +16,17 @@
 # comp3 : 4, 5, 6
 # ---------------------------------------------------------------------------------------------------------------------------
 # So, if we will simply use BFS/DFS like in undirected graph, it will be inefficient, and so
+# Firstly, we can think of using brute force approach that could be to apply floyd warshall and get all pairs shortest path, and if there exists inf between any two nodes, 
+# that means there is no path between them and it cannot be strongly connected component otherwise it can be surely.
+# But that will take 0(V^3) which is highly inefficient for bigger graphs (large number of nodes).
+# Now, some observations : 
+# => Reversing the graph won't change the SCC that means a graph which was strongly connnected won't change if we reverse the graph (transpose of graph).
+# => Direction between componenets will reverse and so, while earlier we were able to move to all the vertices due to SCC property of graph, now we won't be able to move 
+# from one SCC to another SCC and so we have to manually jump to different SCC and we can count how many jumps we took to cover all SCC, in this way Kosaraju's algo works.
+#
+#   SCC1 ->  SCC2 -> SCC3 (GRAPH)
+#   SCC3 <- SCC2 <- SCC1  (TRANSPOSE OF GRAPH)
+#   
 # here, we will be using efficient algorithm : Kosaraju's algorithm.
 # * We will firstly do DFS for each vertex while maintaining visited set, and maintain a extra stack to maintain
 # order in order of exit times. So, last node visited should be first , so LIFO ordering with stack will be used.
