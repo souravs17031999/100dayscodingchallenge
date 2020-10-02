@@ -1,6 +1,20 @@
 # Program to compute strongly connected components in the graph.
 # So, we have to understand that strongly connected components is a part of subgraph
 # in which each vertex can be visited to itself while traversing in this component.
+# For a strongly connected component to exist, there shouldn't be any node which can't be reached from any other node, that means every node should be reachable from every
+# other node.
+# In undirected graph, if the graph is connected then always it is undirected, it is only when graph is disconnected then we can have various strongly connected components.
+# But in directed graph, there can be various different SCC in the same connnected graph like shown below :
+#
+#      1                    5 ___>6 
+#     ^                     ^   /
+#    /  \>                  | /
+#   0 <__ 2 _____ > 3 ____> 4 <
+#
+# comp1 : 0, 1, 2
+# comp2 : 3
+# comp3 : 4, 5, 6
+# ---------------------------------------------------------------------------------------------------------------------------
 # So, if we will simply use BFS/DFS like in undirected graph, it will be inefficient, and so
 # here, we will be using efficient algorithm : Kosaraju's algorithm.
 # * We will firstly do DFS for each vertex while maintaining visited set, and maintain a extra stack to maintain
