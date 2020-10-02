@@ -9,7 +9,19 @@
 # then that graph will not be bipartite otherwise if all the colouring is possible , then it's bipartite.
 # We use BFS for the above problem (although DFS can also be used) !
 # ---------------------------------------------------------------------------------------------------------------------
+# Cycle of even length is always bipartite and of odd length is not bipartite.
 # TIME : 0(V + E)
+# ----------------------------------------------------------------------------------------------------------------------
+# 
+#            _     _
+#           |1| --|3|
+#               \/
+#           |2| --|4| 
+#            -      -
+#
+# For a bipartite graph, it is always possible to partition the nodes into two different sets such that each node of the set doesnt have edge/connection to any node 
+# in the same set but can have have as many connections in other set.
+# ------------------------------------------------------------------------------------------------------------------------
 
 from collections import defaultdict as dd, deque
 class Graph:
