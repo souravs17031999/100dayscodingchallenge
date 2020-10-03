@@ -25,6 +25,7 @@
 # RUNTIMES : 
 # array (adj matrix) : 0(V^2) [due to linear time searching in extract-minimum operation]
 # min-binary heap (prority-queue) + adj list : 0(V + E)log(V) / 0(E* log V) [efficient extract-minimum operation]
+# Every time only adjacent nodes will be in the priority_queue which helps us to find the next minimum from the unvisited set of vertices.
 # More variants of binary heap can be used : Fibonacci heap, Self Balancing tree etc...
 
 from collections import defaultdict as dd
