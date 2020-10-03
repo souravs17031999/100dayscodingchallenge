@@ -16,6 +16,16 @@
 # endWord = "cog",
 # wordList = ["hot","dot","dog","lot","log","cog"]
 #
+#           *OT 
+#         / 
+#   HOT : -- H*T
+#         \ 
+#           HO*
+#
+# HIT -> COG, WE ALL HAVE POSSIBLE CHOICES FROM a - z to choose from.
+#
+# hit -> hot -> dot -> lot -> dog
+# so, output : 5
 # Output: 5
 #
 # Explanation: As one shortest transformation is "hit" -> "hot" -> "dot" -> "dog" -> "cog",
