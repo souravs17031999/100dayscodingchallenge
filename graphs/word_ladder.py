@@ -31,6 +31,9 @@
 #
 # Explanation: The endWord "cog" is not in wordList, therefore no possible transformation.
 # ------------------------------------------------------------------------------------------------------------------------------------------------
+# This problem can be formulated as a graph if we can represent all the word list along with start and end word as graph.
+# Now, we need to actually find the shortest length of transformation so, BFS in the graph traversal will surely give us the shortest length of chain of transformations.
+#
 # TIME : 0((M ^ 2) * N), where M is the length of each word and N is the total number of words in the input word list.
 # SPACE : 0((M ^ 2) * N)
 # ------------------------------------------------------------------------------------------------------------------------------------------------
