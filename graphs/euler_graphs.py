@@ -1,10 +1,10 @@
 # Program to check and verify euler graph/ circuit and euler path for the given graph.
 # Euler graph/circuit : 
-* All vertices with non-zero degree are connected. We don’t care about vertices with zero degree because they don’t belong to Eulerian Cycle or Path.
-* All vertices have even degree.
+# * All vertices with non-zero degree are connected. We don’t care about vertices with zero degree because they don’t belong to Eulerian Cycle or Path.
+# * All vertices have even degree.
 # Euler path : 
-* Same as condition (a) for Eulerian Cycle.
-* If zero or two vertices have odd degree and all other vertices have even degree. Note that only one vertex with odd degree is not possible in an undirected graph.
+# * Same as condition (a) for Eulerian Cycle.
+# * If zero or two vertices have odd degree and all other vertices have even degree. Note that only one vertex with odd degree is not possible in an undirected graph.
 # NOTE : a graph with no edges is considered Eulerian because there are no edges to traverse.
 # --------------------------------------------------------------------------------------------------------------------------------------
 # TIME : 0(E + V)
