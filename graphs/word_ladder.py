@@ -39,7 +39,7 @@ class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         
         visited = set()
-        is_present = False 
+        is_present = False # flag for checking if endword is in the wordlist dict or not 
         for word in wordList:
             if word == endWord:
                 is_present = True
