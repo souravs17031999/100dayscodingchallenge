@@ -42,7 +42,7 @@ class Solution:
         
         path.append(beginWord)
         if beginWord == endWord:
-            ans.extend(path)
+            ans.append(path.copy())
             path.pop()
             return 
         
@@ -85,13 +85,5 @@ class Solution:
         path = []
         ans = []
         self.DFS(beginWord, endWord, graph, path, ans)
-        res = []
-        temp = []
-        for i in ans:
-            temp.append(i)
-            if i == endWord:
-                res.append(temp)
-                temp = []
-        
-        return res
+        return ans
                     
