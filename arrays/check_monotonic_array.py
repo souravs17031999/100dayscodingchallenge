@@ -29,7 +29,10 @@
 # is considered to be monotonic otherwise not which is what is implemented below.
 # ----------------------------------------------------------------------------------------------------------------------------------------------
 # TIME : 0(N) , SPACE : 0(1)
+#
+# Follow up : Can you do it in one pass ?
 
+# Without follow up : 
 class Solution:
     def is_increasing(self, arr, N):
         
@@ -60,3 +63,23 @@ class Solution:
             return True 
         
         return False
+    
+# follow up : 
+
+def isMonotonic(self, A: List[int]) -> bool:
+
+    N = len(A)
+    if not N:
+        return False 
+
+    if N == 1:
+        return True
+
+    increasing = decreasing = True
+    for i in range(N - 1):
+        if A[i] > A[i + 1]:
+            increasing = False 
+        elif A[i] < A[i + 1]:
+            decreasing = False 
+
+    return increasing or decreasing
