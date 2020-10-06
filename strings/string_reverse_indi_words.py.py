@@ -1,7 +1,7 @@
 # program to reverse individual words of string given as input (without using in-built split function)
 
 # function to build custom split string into list of individual words
-def split(text):
+def split(text, delimiter):
     # if there is nothing
     if len(text) == 0:
         return
@@ -13,10 +13,10 @@ def split(text):
     s = text[0]
     for i in range(1, len(text)):
         # if this is not whitespace, then it is char of last started string, so adding it to string
-        if text[i] != ' ':
-            s = "".join((s, text[i]))sourav
+        if text[i] != delimiter:
+            s = "".join((s, text[i]))
         # if this is whitespace, so we got our word, then it is appended in list
-        if text[i] == ' ':
+        if text[i] == delimiter:
             l.append(s)
             s = ''
         # if it is at the last index, simply append the last formed word to the list
@@ -27,11 +27,13 @@ def split(text):
 # function to reverse the overall string of words
 def reverse(text):
     # split_text contains splitted text using whitespace as delimiter
-    split_text = split(text)
+    split_text = split(text, delimiter=" ")
     # going over each word, we can reverse it using string slicing
+    print(f"splitted text : {split_text}")
     for i in range(len(split_text)):
         split_text[i] = split_text[i][::-1]
     # finally returning the overall string by joining the splitted words into a single string
+
     return " ".join(split_text)
 
 # main function
