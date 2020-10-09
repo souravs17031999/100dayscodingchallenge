@@ -23,6 +23,23 @@
 # --------------------------------------------------------------------------------------------------------
 # NOTE : We can optimize more in terms of space by using two vectors (lists) of size m, n.
 
+# Simple recursion :
+def string_edit(s1, s2, n1, n2):
+    
+    if n1 == 0:
+        return n2
+    
+    if n2 == 0:
+        return n1
+    
+    if s1[n1 - 1] == s2[n2 - 1]:
+        return string_edit(s1, s2, n1 - 1, n2 - 1)
+    
+    else:
+        return 1 + min(string_edit(s1, s2, n1 - 1, n2 - 1), \
+                       min(string_edit(s1, s2, n1 - 1, n2), string_edit(s1, s2, n1, n2 - 1)))
+
+# bottom up DP :
 
 # A Dynamic Programming based Python program for edit
 # distance problem
