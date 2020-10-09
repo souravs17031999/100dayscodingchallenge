@@ -78,7 +78,7 @@ def compute_max_value(val, wt, W, n):
     for i in range(n + 1):
         for j in range(W + 1):
 
-            if i == 0 and j == 0:
+            if i == 0 or j == 0:
                 dp[i][j] = 0
 
             elif wt[i - 1] <= j:
