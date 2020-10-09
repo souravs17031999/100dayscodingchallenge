@@ -1,6 +1,6 @@
 # Program for computing longest common subsequence for the two given strings.
 # --------------------------------------------------------------------------------------
-# Naive approach would be to generate all the substrings and then check which one is common to both
+# Naive approach would be to generate all the subsequences and then check which one is common to both
 # and also update the length in that same iteration.
 # So, that would be expensive exponential operation.
 # -----------------------------------------------------------------------------------------
