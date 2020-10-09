@@ -68,6 +68,7 @@ def knapsack(W, wt, val, n):
     
 
 # BOTTOM UP TABULATED DP : 
+# At each point in the table i, j we solve smaller subproblems for given items i and max weight j with appropriate val and wt array elements.
 # TIME : 0(W * N), SPACE : 0(W * N)
 
 def compute_max_value(val, wt, W, n):
@@ -80,7 +81,7 @@ def compute_max_value(val, wt, W, n):
             if i == 0 and j == 0:
                 dp[i][j] = 0
 
-            elif j >= wt[i - 1]:
+            elif wt[i - 1] <= j:
                 dp[i][j] = max(val[i - 1] + dp[i - 1][j - wt[i - 1]], dp[i - 1][j])
 
             else:
