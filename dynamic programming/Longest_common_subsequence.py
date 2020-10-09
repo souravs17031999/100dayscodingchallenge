@@ -15,6 +15,26 @@
 # LCS("AX", "AYZ")  LCS("AXY", "AYZ")  LCS("AXY", "AYZ")  LCS("AXYT", "AY")
 #                        __________         __________
 #
+# Detailed recursion tree for the calls made :
+#
+#                                             (4, 4)
+#                                          
+#                                   /                           \
+#                           (3, 4)                                 (4, 3)
+#                           /     \                                    /   \
+#                      (2, 4)      (3, 3)                           (3, 3)  (4, 2)   
+#                       |           / \                               ....    / \
+#                       (1, 3)   (2, 3) (3, 2)                            (3, 2) (4, 1)
+#                        /  \       /  \     ....                          ...     ...
+#                   (0, 3)  (1, 2) (1, 3) (2, 2)
+#                            /  \   ...    ....
+#                        (0, 2)  (1, 1)
+#                                  |
+#                                 (0, 0)
+#
+#
+# We can see various overlapping subproblems denoted by "...."
+#
 # now, we compare last two chars, and then if they are equal then we chop off that char from both string,
 # and then it will be 1 + lcs("s1-matching_char", "s2-matching_char")
 # similarly, if there is no match, then we would have to think , there is a competion between either of the chars being chopped off
