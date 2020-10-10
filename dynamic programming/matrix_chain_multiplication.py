@@ -21,6 +21,10 @@
 #                                     |  | \  3.3 3.4
 #                                    4.4 1.1 2.2
 #                                    __  __
+#
+# Observation : how to compute cost of multiplying two matrices ? because once we get it we can use these smaller subproblems to compute answr for bigger problems.
+# So, if we have matrix A of dim[x, y] and matrix B of dim[y, z] => A x B => dim[x * y * z]
+# Using the above fact, we can outline the naive brute force solution as explained below.
 # A simple solution is to place parenthesis at all possible places, calculate the cost for each placement and return the minimum value.
 # In a chain of matrices of size n, we can place the first set of parenthesis in n-1 ways. For example, if the given chain is of 4 matrices.
 # let the chain be ABCD, then there are 3 ways to place first set of parenthesis outer side: (A)(BCD), (AB)(CD) and (ABC)(D).
