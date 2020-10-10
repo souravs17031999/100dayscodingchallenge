@@ -22,6 +22,19 @@
 # Base case : when L(1) = 1, thus every single element is in itself longest increasing subsequence.
 # -------------------------------------------------------------------------------------------------------------
 # TIME : 0(N^2), SPACE : 0(N)
+# -------------------------------------------------------------------------------------------------------------
+# Can we do more better than this ?
+# Let's without any dp or recursion.
+# It's possible in TIME : 0(N * log(N)), SPACE : 0(N).
+# We can use extra array to store the minimum possible value for the subsequence at index i, in the sequecne in the array M[i].
+# Whenever new element comes, we check witht the last element stored in M, then move to previous element and this search can be done using binary search, as M stores 
+# Indices whose elements are sorted.
+# After searching, low will contain one length greater than length of longest prefix
+# and then store the index i in M at new length found in low.
+# Then, check if this is the max length found so far, thus update the max length.
+# -------------------------------------------------------------------------------------------------------------
+
+# DP based solution :
 
 def compute_longest_incr_subs(arr):
 
@@ -34,6 +47,35 @@ def compute_longest_incr_subs(arr):
                 lis[i] = max(lis[i], lis[j] + 1)
 
     return max(lis)
+
+# NlogN solution : 
+import math
+def compute_longest_incr(X):
+    n = len(X)
+    M = [0 for _ in range(n + 1)]
+    print(M)
+    L = 0
+    for i in range(0, n):
+        print(M)
+        low = 1
+        high = L
+        print(f"searching from {low} to {high}")
+        while low <= high:
+            mid = math.ceil(low + high) // 2
+            print(f"mid found is  {mid}")
+            if X[M[mid]] < X[i]:
+                low = mid + 1
+            else:
+                high = mid - 1
+        
+        newL = low
+        M[newL] = i
+        
+        if newL > L:
+            L = newL
+    
+    return L
+
 
 if __name__ == '__main__':
     arr = [10 , 22 , 9 , 33 , 21 , 50 , 41 , 60]
