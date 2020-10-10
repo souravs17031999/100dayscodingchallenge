@@ -23,6 +23,12 @@
 # --------------------------------------------------------------------------------------------------------
 # NOTE : We can optimize more in terms of space by using two vectors (lists) of size m, n.
 # EXPLANATION OF DETAILED RECURSION CALLS TREE :
+#
+# s1 = "sun"
+# s2 = "sas"
+# n1 = len(s1)
+# n2 = len(s2)
+#
 #                                               (3, 3)
 #                                        /                     \
 #                                                  |
