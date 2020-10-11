@@ -32,7 +32,15 @@
 # min((1 + max( DP[i-1][j-1], DP[i][j-x] )) for k from 1 to jth floor)
 # -------------------------------------------------------------------------------------------------------
 # TIME : 0(n*k^2), SPACE: 0(n*k)
-
+# -------------------------------------------------------------------------------------------------------
+#   Recursion call visualized :  
+#   suppose, eggs = 2, floors = 2
+#   so, we will try for first floor, and then by second floor and get the minimum trials of all floors as at every floor, we have two possibilities, we get the max of them for surety.
+#                    k = 0,  (2,2)                  then,          k = 1
+#                              / \                                  / \
+#                    break (1, 0)   (2, 1)  not break   break (1,1) (2, 0) not break
+#
+#
 # simple recursion
 
 import sys
