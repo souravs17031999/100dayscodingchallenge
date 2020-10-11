@@ -23,6 +23,37 @@
 # Then, we can apply DP bottom up tabulation.
 # ----------------------------------------------------------------------------------------------------------
 # TIME : 0(N^2), SPACE : 0(N^2)
+# -----------------------------------------------------------------------------------------------------------
+# Recursion tree visualized for the given grid  :
+# 
+#            [1, 2, 3]
+#            [4, 8, 2]
+#            [1, 5, 3]
+#
+#
+#                                    (2, 2)
+#                                     / |  \
+#                    (1, 2)            (2,1)              (1,1)   
+#                     / | \              /|\               /|\
+#               (0,2) (1, 1) (0,1)   (1,1) (2,0) (1,0)   (0,1) (1,0) (0,)
+#                ...   / | \           ...  ...    ...     ...  ... 
+#                  (0,1) (1,0) (0,0)
+#                  /|\    ...   
+#               (-1,1) (0,0) (-1,0)
+#
+# simple recursion : 
+
+def min_cost_grid(grid, m, n):
+    print(m, n)
+    if m < 0 or n < 0:
+        return sys.maxsize
+    elif m == n == 0:
+        return grid[m][n]
+    else:
+        return grid[m][n] + min(min_cost_grid(grid, m - 1, n), min_cost_grid(grid, m, n - 1), min_cost_grid(grid, m - 1, n - 1))
+
+    
+# DP solution : 
 
 from typing import List
 
