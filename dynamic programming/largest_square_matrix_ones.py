@@ -71,5 +71,3 @@ M = [[0, 1, 1, 0, 1],
 	[0, 0, 0, 0, 0]]
 
 print(printMaxSubSquare(M))
-
-# This code is contributed by Soumen Ghosh
