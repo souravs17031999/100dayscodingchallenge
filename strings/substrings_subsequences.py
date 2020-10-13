@@ -31,7 +31,23 @@ def gen_subseq(arr, n):
                 print(arr[j], end = " ")
         print()
        
-    
+# Alternate method for subsequence generation/subsets generation or power set generation using recursion and backtracking : 
+# Output is a 2d nested list containing all distinct subsets but can be modified for other uses as well.
+
+class Solution:
+    def subset(self, arr, index, temp, res):
+        
+        if index == len(arr):
+            res.append(temp)
+        else:
+            self.subset(arr, index + 1, temp, res)
+            self.subset(arr, index + 1, temp + [arr[index]], res)
+        
+    def subsets(self, nums: List[int]) -> List[List[int]]:
+        output = []
+        self.subset(nums, 0, [], output)
+        return output
+        
 
 # main function
 if __name__ == '__main__':
