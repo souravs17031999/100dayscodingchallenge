@@ -1,4 +1,4 @@
-# program for generating substrings and subsequences for a given array
+# program for generating substrings and subsequences for a given array/string.
 
 # program for generating subarrays/ substrings
 # TIME : 0(N^2).
