@@ -32,6 +32,27 @@ def subsequence(arr, index, subset):
         subsequence(arr, i + 1, subset)
         subset.pop()
 
+# If duplicates also occur in array, then we need to skip those for distinct subsets/subsequences: 
+# Using sets for not counting those which are already generated.
+
+class Solution:
+    def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
+        output = []
+        visited = set()
+        n = len(nums)
+        nums.sort()
+        for i in range(2 ** n):
+            temp = []
+            for j in range(0, n):
+                if i & (1<<j):
+                    temp.append(nums[j])
+            
+            if tuple(temp) not in visited:
+                output.append(temp)
+                visited.add(tuple(temp))
+        
+        return output
+
 arr = [1, 2, 3]
 subsets(arr, 0, [])
 arr = [1, 2, 3]
