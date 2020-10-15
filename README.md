@@ -19,7 +19,7 @@
 > 5. For complete beginners : you can try re-writing the code from Python to any different language of your choice (which you may have learned or learning) and submit your PR by creating a new directory inside the problem category as shown below :    
 -- _root_ (100dayscodingchallenge)      
    -- _category1_ (ex. arrays)      
-      -- new_dir named as "<_programming_language_your_choice>_<problemName>" (ex. c++_rotateImage)         
+      -- new_dir named as "<programming_language_your_choice>_<problemName>" (ex. c++_rotateImage)         
          -- <solutionFileName_githubUsername>.language_extension (ex. rotate_image_xyz.cpp)      
   
 > 6. For your queries or any confusion related to submitting your PR, please open a new issue and describe your query.
