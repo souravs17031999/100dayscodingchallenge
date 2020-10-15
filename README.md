@@ -4,7 +4,7 @@
 > 2. Your file should include clear problem description, I/O i.e. input - output samples clearly, solution (all solutions if alternate approaches) and any follow up questions and its solutions.      
 > 3. Explain your approach/intuition for the proposed algorithm before writing the solution (code) for the problem.     
 > 4. There are various categories of problems ranging from Data structures, Algorithms, Operating systems, Threading, Concurrency, Object oriented Design, SQL etc..  
-> 5. Please Don't duplicate the already solved problem.     
+> 5. Please Don't duplicate the already solved problem. The directory name speaks for themselves which category it belongs to.  
 > 6. Add "hacktoberfest-accepted" label to your PR to make your PR stand out and clearly state it's for hacktoberfest.   
  ------------------------------------------------------------------------------------------------------------------------------
 > 7. For complete beginners : you can try re-writing the code from Python to any different language of your choice (which you may have learned or learning) and submit your PR by creating a new directory inside the problem category as shown below :    
