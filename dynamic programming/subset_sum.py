@@ -65,5 +65,4 @@ if __name__=='__main__':
 	else:
 		print("No subset with given sum")
 
-# This code is contributed by
-# sahil shelangia.
+
