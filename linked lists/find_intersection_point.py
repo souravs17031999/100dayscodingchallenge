@@ -7,6 +7,25 @@
 # THEN WE NEED TO MOVE THAT POINTER TO THE OTHER HEAD OF LINKED LIST.
 # THIS WAY WE KEEP REASSIGNING THE NULL REACHING POINTER TO OTHER HEAD OF LINKED LIST, IN THIS WAY THE TWO POINTERS WILL BE EQUIDISTANT
 # FROM THE COLLISION POINT
+#------------------------------
+# APPROACH 2
+#--------------------------------
+# Using the logic of first counting the length of both linked lists, then move the ptr of bigger linked list till the difference of both counts
+# d = abs(c1 -c2), Now move both pointers of both linked lists, until they collide.
+# TIME : 0(M + N), SPACE : 0(1)
+# ------------------------------
+# APPROACH 3
+#--------------------------------
+# If it is allowed to modify the basic data structure, then this solution will work in 0(M+N), where M, N is size of linked lists respectively.
+# SPACE : EXTRA SPACE JUST FOR VISITED FLAG IN THE NODE structure.
+# --------------------------------------------------------------------------------------------------------
+# APPROACH 4
+# We can use hashtable to traverse one list and put all the node addresses of all nodes in that list, then again we can traverse the other list if any of the node  
+# addresses is already in hashtable, then that is the intersection point.
+# TIME : 0(M + N), SPACE : (K), K IS NUMBER OF NODES IN THE FIRST LIST, WHICH CAN BE MAX(M, N).
+# --------------------------------------------------------------------------------------------------------
+#
+# APROACH 1 (MOST OPTIMIZED WITH SINGLE PASS)
 
 class Node:
 
@@ -34,12 +53,8 @@ class LinkedList:
             if ptr2 == None:
                 ptr2 = head1
 
-# ------------------------------
-# APPROACH 2
-#--------------------------------
-# Using the logic of first counting the length of both linked lists, then move the ptr of bigger linked list till the difference of both counts
-# d = abs(c1 -c2), Now move both pointers of both linked lists, until they collide.
-# TIME : 0(M + N), SPACE : 0(1)
+# -----------------------------------------------------------------
+# APPROACH 2 
 # class Node:
 #
 #     def __init__(self, x):
@@ -82,18 +97,15 @@ class LinkedList:
 #
 #         return -1
 
-# ------------------------------
-# APPROACH 3
-#--------------------------------
-# If it is allowed to modify the basic data structure, then this solution will work in 0(M+N), where M, N is size of linked lists respectively.
-# SPACE : EXTRA SPACE JUST FOR VISITED FLAG IN THE NODE structure
+
 # class Node:
 #
 #     def __init__(self, x):
 #         self.data = x
 #         self.next = None
 #         self.visited = False
-
+# -------------------------------------------------------
+# APPROACH 3
 # def find_intersection(self, head1, head2):
 #     ptr1 = head1
 #     while ptr1 != None:
