@@ -1,4 +1,4 @@
-# IMPORTANT POINTS FOR INTERVIEW FOR APPROACHING DP (MOSTLY IN BOTTOM UP TABULATION MANNER) :   
+# IMPORTANT POINTS FOR INTERVIEW FOR APPROACHING DP  :   
 ## Typically, all the problems that require to maximize or minimize certain quantity or counting problems that say to   
 ## count the arrangements under certain condition or certain probability problems can be solved by using Dynamic Programming.   
 ## DP is nothing but simply usage of Caching.   
