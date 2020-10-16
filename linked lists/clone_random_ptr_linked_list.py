@@ -14,9 +14,21 @@
 # Then, we need to get random nodes which can be fetched in 0(1) time by using original.next.random = original.random.next
 # Now, we need to simply detach our newly cloned list against original input list so that we do not modify original list given to us in the form of input.
 # Below is most optimized version in TIME : 0(N), N IS SIZE OF LINKED LIST, SPACE : 0(1)
-Old List: A --> B --> C --> D
-InterWeaved List: A --> A' --> B --> B' --> C --> C' --> D --> D'
-
+# Old List: A --> B --> C --> D
+# InterWeaved List: A --> A' --> B --> B' --> C --> C' --> D --> D'
+# Now, we can see below diagram for better intution about setting random pointers :
+#    _________________________
+#   |                         |
+#   A --> A' --> B --> B' --> C --> C' --> D --> D'
+#  In the above linked list, random ptr of A points to C, so, what is original.random.next ? it's the copy of original.random, and so, if we see clearly, then 
+#  we can point original.next.random to original.random.next as shown below : 
+#    _________________________
+#   |                         |
+#   A --> A' --> B --> B' --> C --> C' --> D --> D'
+#         |                         |
+#         ---------------------------  
+#
+# --------------------------------------------------------------------------------------------------------------------------------------------
 
 class Node:
 
