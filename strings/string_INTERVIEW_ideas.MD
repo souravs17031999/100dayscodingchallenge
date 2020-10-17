@@ -24,6 +24,27 @@ for end in range(len(s)):
        count -= 1   
    print()   
 ```      
+
+> Template for sliding window approach (static size + hashing) :    
+* Remember to use static array of size 26 / 128 for strings problems :      
+```   
+map = [0] * 26/128     
+start = 0     
+count = 0    
+for end in range(len(s)):    
+   count += 1    
+   
+   map[ord(s[i]) - ord('a')] += 1
+   if count == k:       
+       // other logic    
+       
+       map[ord(s[start]) - ord('a')] -= 1   
+       start += 1      
+       count -= 1     
+   print()   
+
+```  
+
 > Template for sliding window (dynamic window) :      
 * minStart, minLen can be kept and updated whenever necessary and returned finally     
 
