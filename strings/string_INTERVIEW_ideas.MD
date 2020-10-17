@@ -24,27 +24,39 @@ for end in range(len(s)):
        count -= 1   
    print()   
 ```      
-> Template for sliding window (dynamic window) :    
+> Template for sliding window (dynamic window) :      
+* minStart, minLen can be kept and updated whenever necessary and returned finally     
+
 ```   
 map = {}  # for hashmaps assisted    
 count = 0   
 start = 0   
 int d; //the length of substring   
 for (): initilze hashmap     
-
+// Move end to find a valid window.
 for end in range(len(s)):     
-    if(map[s[end++]]-- ?){modify counter here }       
-    while(counter condition){            
-                 
-                  update d here if finding minimum    
+    // If char in s exists in t, decrease counter
+    if (map[s[end]] > 0) {modify counter here }            
+    // Decrease m[s[end]]. If char does not exist in t, m[s[end]] will be negative.       
+		m[s[end]]--       
+      end++         
+      // When we found a valid window, move start to find smaller window.     
+    while(counter condition){                 
+          
+          if (end - start < minLen or any other condition)
+          {update d here if finding minimum }
 
-                increase begin to make it invalid/valid again         
+          increase begin to make it invalid/valid again         
                 
-       if(map[s[begin++]]++ ?){ modify counter here }               
-            }        
+          m[s[start]]++    
+          // When char exists in t, increase counter.   
+            if (m[s[start]] > 0)    
+          { modify counter here }                  
+            } 
+           start++        
     
-    update d here if finding maximum      
+    update d here if finding maximum        
  
-return d     
+return d / return s.substr(minStart, minLen);       
 ```                 
     
