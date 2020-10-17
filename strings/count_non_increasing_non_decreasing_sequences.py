@@ -50,7 +50,7 @@ def getParts(s):
             else:
                 seq = -1
         curr = s[index]
-if(ord(curr) >= ord(prev) and (seq == 1 or seq == 0)):
+        if(ord(curr) >= ord(prev) and (seq == 1 or seq == 0)):
             if(ord(curr) > ord(prev)):
                 seq = 1
             prev = curr
