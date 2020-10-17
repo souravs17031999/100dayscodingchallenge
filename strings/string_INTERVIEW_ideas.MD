@@ -24,27 +24,27 @@ for end in range(len(s)):
        count -= 1   
    print()   
 ```      
-> Template for sliding window (dynamic window) :   
+> Template for sliding window (dynamic window) :    
+```   
+map = {}  # for hashmaps assisted    
+count = 0   
+start = 0   
+int d; //the length of substring   
+for (): initilze hashmap     
 
-map = {}  # for hashmaps assisted 
-count = 0
-start = 0
-int d; //the length of substring
-for (): initilze hashmap 
-
-for end in range(len(s)):
-    if(map[s[end++]]-- ?){modify counter here }   
-    while(counter condition){        
+for end in range(len(s)):     
+    if(map[s[end++]]-- ?){modify counter here }       
+    while(counter condition){            
                  
-                  update d here if finding minimum
+                  update d here if finding minimum    
 
-                increase begin to make it invalid/valid again      
+                increase begin to make it invalid/valid again         
                 
-       if(map[s[begin++]]++ ?){ modify counter here }            
-            }     
+       if(map[s[begin++]]++ ?){ modify counter here }               
+            }        
     
-    update d here if finding maximum
+    update d here if finding maximum      
  
-return d 
-              
+return d     
+```                 
     
