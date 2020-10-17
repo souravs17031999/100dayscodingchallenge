@@ -11,14 +11,14 @@
 * TIP : DON'T USE STRING FOR MODIFICATIONS, FIRSTLY BREAK IT INTO LIST, THEN APPLY MODIFICATIONS AND FINALLY WHILE RETURNING JOIN IT.
 * TRIES : FOR LIST OF STRINGS QUESTIONS LIKE MATCHING, PREFIX, SUFFIX ETC..
 
-> Template for sliding window approach  :   
-* we need two variables "start" and "end" to control the sliding of window.   
+> Template for sliding window approach (static size) :   
+* we need two variables "start" and "end" to control the sliding of window, k is size of window.   
 ```   
 start = 0   
 count = 0    
 for i in range(len(s)):    
    count += 1    
-   if count == 3:    
+   if count == k:    
        print(s[start : i + 1])    
        start += 1    
        count -= 1   
