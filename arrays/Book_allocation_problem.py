@@ -1,7 +1,7 @@
 # Program to find the maximum number of pages a student is allocated for a given n number of books and m number of students,
 # such that maximum number of pages assigned to a student is minimum.
 # Also, pages are arranged in ascending order and partitions are to be assinged in continuos segements.
-#---------------------------------------
+#---------------------------------------------------------------------------------------------------------
 # Ex. pages : [12, 34, 67, 90]
 # m = 2
 # Explain : we can allocate 2 students in three fashions:
@@ -16,6 +16,22 @@
 # So, we can compute the midpoint and check if atleast this many number of pages can be allocated, then we can ignore the other search space
 # and keep reducing the search spaces.
 # TIME : 0(N*lg(N))
+# ---------------------------------------------------------------------------------------------------------
+# In depth Intuition :
+# Suppose, following needs to be allocated for 2 students, 
+# We need to find following : minimum allocation for max number of pages, 
+# [10 | 20, 30, 40] => 90   ----
+# [10, 20,| 30, 40] => 70       |-----  min(90, 70, 60) => 60
+# [10, 20, 30, | 40] => 60  ----
+# So, last partition is optimal and so we know that range of our answer should be between some start that is probaly, 0 but can be better 
+# when we start from max element as seen above, so, we can start from last element, and then for last element of range, it can be sum of all pages of book.
+# So, ans lies in (40, 100) that is in (max_element....sum_of_array)
+# ---------------------------------------------------------------------------------------------------------
+# In these type of questions, we need to decide how to search and based on what condition we can move to either half space.
+# So, we compute "mid", and check if it is possible to allocate max that much pages, then, we move to left side of search space as we need to minimize it so there is no benefit
+# in going to right side, but if it's not possible, then it means we need to move to right side as we need to increase this max allocated pages so as to fit according to 
+# constraints of given number of students.
+# ---------------------------------------------------------------------------------------------------------
 
 import sys
 from sys import stdin, stdout
@@ -41,6 +57,7 @@ def isPossible(arr, n, m, curr_min):
 # function to findPages
 def findPage(arr, n, m):
     sum = 0
+    # if books < students, then it's not possible, because atleast one page should be allocated to one student.
     if n < m:
         return -1
 
@@ -48,7 +65,7 @@ def findPage(arr, n, m):
         sum += arr[i]
 
     # defining the search space -: start will be last element of pages, last will be overall sum of pages.
-    s, e, ans = arr[n - 1], sum, sys.maxsize
+    s, e, ans = max(arr), sum, sys.maxsize
 
     while s <= e:
         mid = (s + e) // 2
