@@ -2,7 +2,7 @@
 
 * First match the pattern of similar questions solved in the past (run through all the DS/ALGO interview patterns)  
 * If above doesn't works, then it means the question may involve some thinking beyond any similar pattern : Go for explicilty writing input-output examples and clearly observe any
-pattern hidden in it, usually it does help to write the input and output examples explicilty and correlate it.   
+pattern hidden in it, usually it does help to write the input and output examples explicitly and correlate it.   
 There are tricky patterns hidden inside the problem which are only visible when written clearly explicitly.  
 
 ## General tips : 
