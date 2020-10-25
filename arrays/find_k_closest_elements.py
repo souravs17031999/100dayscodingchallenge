@@ -55,7 +55,65 @@ class Solution:
         res = []
         for i in range(k):
             res.append(heappop(heap)[1])
-        res.sort()
+        res.sort() # only required when submitting to leetcode
         return res
 
 # Binary search based approach : 
+class Solution:
+    
+    def cross_over(self, arr, x):
+        
+        start, end = 0, len(arr) - 1
+        while start <= end:
+            mid = start + (end-start) // 2
+            if arr[end] <= x:
+                return end 
+            
+            if arr[start] > x:
+                return start
+            
+            if arr[mid] <= x and arr[mid + 1] > x:
+                return mid 
+            if x < arr[mid]:
+                end = mid - 1
+            else:
+                start = mid + 1
+        
+        return -1
+    
+    def findClosestElements(self, arr: List[int], k: int, x: int) -> List[int]:
+        
+        
+        count = 0
+        n = len(arr)
+        res = []
+        
+        if n <= 0: return []
+        if n == 1: return [arr[0]]
+        
+        left = self.cross_over(arr, x)
+        right = left + 1
+        
+        while left >= 0 and right < n and count < k:
+            if x - arr[left] <= arr[right] - x:
+                res.append(arr[left])
+                left -= 1
+            else:
+                res.append(arr[right])
+                right += 1
+            count += 1
+        
+        while count < k and left >= 0:
+            res.append(arr[left])
+            left -= 1
+            count += 1
+        
+        while count < k and right < k:
+            res.append(arr[right])
+            right += 1
+            count += 1
+        
+        res.sort() # only required when submitting to leetcode
+        return res
+            
+        
