@@ -44,7 +44,8 @@ class Solution:
 
 # -----------------------------------------------------------------------------------------------------------------------------------------------------------
 # FOLLOW UP - LOGARITHMIC TIME COMPLEXITY ?        
-        
+# TIME: 0(log(N)), space: 0(1)
+
 # importing sys module to make I/O faster 
 import sys
 def peak_element(arr, start, end, n):
