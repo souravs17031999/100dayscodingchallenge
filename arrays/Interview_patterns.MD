@@ -9,7 +9,7 @@
 > STATIC SIZED WINDOW SLIDING : FIXED WINDOW SIZE DURING WHOLE TRAVERSAL (USUALLY SIMULATED BY TWO POINTERS START, END)  
 > DYNAMIC SIZED WINDOW SLIDING : VARIABLE SIZING WINDOW, EXPAND FROM RIGHT SIDE, SHRINK FROM LEFT SIDE.
 > DYNAMIC SIZED WINDOW + AUX. DS : VARIABLE SIZING WINDOW + SOME KIND OF HASHMAP/HASHTABLE    
-> IMPORTANT : IF we want to answer some queries for every window : then use Deque/queue based approach   
+> IMPORTANT : IF we want to answer some queries for every window : then use Deque/queue based approach (not a single answer)   
 
 * Modified binary search (keep searching even if value is found by including other conditions)
 * Prefix cumulative sum array (for range queries)
