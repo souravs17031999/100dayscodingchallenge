@@ -2,6 +2,34 @@
 # Best optimized solution would be to basically use window sliding approach , which creates and keeps track of just two pointers start and end,
 # and keep sliding one at a time and taking sum simulatenously.
 # Time : 0(N), space : 0(1)
+#
+# -------------------------------------------------------------------------------------------------------------------------------------------------------
+# MORE CLEARER WAY FOR USING SLIDING WINDOW APPROACH : 
+
+import sys 
+def max_sum_subarray(arr, k):
+    
+    n = len(arr)
+    if n < k:
+        print("INVALID")
+    start = 0
+    count = 0
+    max_sum = -sys.maxsize-1
+    temp_sum = 0
+    for end in range(n):
+        count += 1
+        temp_sum += arr[end]
+        if count == k:
+            max_sum = max(temp_sum, max_sum)
+            temp_sum -= arr[start]
+            start += 1
+            count -= 1
+    
+    print(max_sum)
+
+max_sum_subarray([1, 4, 2, 10, 23, 3, 1, 0, 20], 4)
+
+# ATERNATE WAY FOR DOING SAME APPROACH (WITH COMMENTS): 
 
 # above required function
 def max_k_sum(arr, k):
