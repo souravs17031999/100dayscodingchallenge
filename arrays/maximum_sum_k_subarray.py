@@ -1,4 +1,30 @@
 # program for finding the maximum sum of array for k consecutive array elements
+# Naive solution will be to simply generate all the subarrays of length "k" and get the sum along with it also keeping and maintaining max_sum, 
+# Now, this would take brute force in 0(N * k * k) but with little optimization, we can take the sum along as we go on generating the subarrays, so, it would be done in 0(N * k).
+# But can we do more better than this ?
+# For that, we should firstly understand what is the bottleneck for the program ?
+# Let's see : 
+# arr : [100, 200, 300, 400], K = 2 (window size)
+# Now, we can generate all subarrays :
+# [100                      -----------------------
+# [100, 200                                       |
+# [100, 200, 300                                   
+# [100, 200, 300, 400                                       =>  take sum along with generating one by one and check for max_sum so far 
+# [200, 
+# [200, 300                                       | 
+# [200, 300, 400
+# [300, 
+# [300, 400                                       |
+# [400                    -------------------------
+# As we can see, sums are being duplicated due to repetitive work in every subarray, 
+# so, we need to compute sum only once for every subarray and no need for duplicacy, we can do this using sliding window concept.
+# 
+#
+#  |100, 200| 300 400 is our first window, get the sum as 300, now discard first element (100) and include next element to form next valid window 
+#  100 |200, 300| 400 => 500
+#  100 200 |300 400| => 700
+#  So, 700 is maximum sum for k = 2.
+# 
 # Best optimized solution would be to basically use window sliding approach , which creates and keeps track of just two pointers start and end,
 # and keep sliding one at a time and taking sum simulatenously.
 # Time : 0(N), space : 0(1)
