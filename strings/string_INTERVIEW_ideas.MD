@@ -105,5 +105,6 @@ for i in range(k, n):
     
     // add conditions for adding/appending elements to the deque 
 
+// finally, add the answer for the last window also print(Deque[0])
 ```   
 
