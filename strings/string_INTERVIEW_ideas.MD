@@ -82,4 +82,28 @@ for end in range(len(s)):
  
 return d / return s.substr(minStart, minLen);       
 ```                 
+
+> Template for sliding window + deque based approach :  
+
+// store the indices not the element in the deque    
+// process first k elements in the deque   
+
+```    
+Deque = deque()
+for i in range(k):
+    // conditions for adding to deque 	
+```   
+// Now, process remaining elements    
+
+```    
+for i in range(k, n):
+    // print the front of deque as answer (add conditions if necessary)
+    print(Deque[0])   
+    // remove the non useful elements from the current window 
+    while Deque and Deque[0] <= i - k:
+        Deque.popleft()
     
+    // add conditions for adding/appending elements to the deque 
+
+```   
+
