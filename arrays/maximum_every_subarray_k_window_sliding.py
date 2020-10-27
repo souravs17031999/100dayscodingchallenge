@@ -67,7 +67,7 @@ def maximum_subarray(arr, k):
     # processing the first k elements
     for i in range(k):
         # keeping only the useful element
-        while Q and arr[i] > arr[Q[-1]]:
+        while Q and arr[i] >= arr[Q[-1]]:
             Q.pop()
         Q.append(i)
 
@@ -80,12 +80,14 @@ def maximum_subarray(arr, k):
             Q.popleft()
 
         # again keeping only the useful element
-        while Q and arr[i] > arr[Q[-1]]:
+        while Q and arr[i] >= arr[Q[-1]]:
             Q.pop()
 
         Q.append(i)
     # the sliding window stops for last k window, so we need to print explicitly the front for last traversal remaining elements of deque
-    result.append(Q[0])
+    result.append(arr[Q[0]])
+
+# for min, few changes need to be made : instead of arr[i] >= arr[Q[-1]], use arr[i] <= arr[Q[-1]]
 
 if __name__ == '__main__':
     maximum_subarray([12, 1, 78, 90, 57, 89, 56], 3) == [78, 90, 90, 90, 89]
