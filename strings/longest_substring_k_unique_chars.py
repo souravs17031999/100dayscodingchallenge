@@ -34,6 +34,7 @@
 
 # TIME : 0(N), WITH CONSTANT SPACE: 0(26)/0(1)
 
+# function to check if curr_window has exactly k unique chars or not 
 def isValid(count, k):
     val = 0
     for i in range(MAX_CHARS):
@@ -59,6 +60,9 @@ start, end = 0, 0
 max_window_size = INT_MIN
 count = [0] * len(count)
 count[ord(s[0])-ord('a')] += 1
+
+# find the valid window, then until it is not valid, keep removing from left side, 
+# finally out of while loop, update the max len, size
 
 for i in range(1,n):
     count[ord(s[i])-ord('a')] += 1
