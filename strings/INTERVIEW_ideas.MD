@@ -82,6 +82,20 @@ for end in range(len(s)):
  
 return d / return s.substr(minStart, minLen);       
 ```                 
+> When finding smallest dynamic window :   
+```  
+// first find the valid window and then start minimizing it 
+start = 0
+curr_sum = 0
+min_len = 0
+for end in range(len(arr)):
+    curr_sum += arr[end]
+    while curr_sum >= k:
+        min_len = min(min_len, end-start+1)
+        curr_sum -= arr[start]
+        start += 1
+
+```   
 
 > Template for sliding window + deque based approach :  
 
