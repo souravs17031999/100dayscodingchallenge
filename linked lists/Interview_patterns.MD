@@ -3,3 +3,4 @@
 * Visited Flag logic (modification in basic structure if allowed) or if not allowed, then some kind of Hashing.
 * Keeping a track of tail pointer along with head.
 * Any other manipulation of pointer tricks.
+* Construct dummy node and some manipulation.   
