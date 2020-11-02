@@ -45,6 +45,45 @@ class linked_list:
         # ptr points now to the kth positioon from the end
         return ptr.data
 
+# Deleting nth node from the end, so, actually, we need to stop one node before in order to delete next node (reqired nth node from the end).
+# So, we create a dummy node, and then start the above two pointers from dummy node.
+# Then, we move fast_ptr to "n + 1" times, then start both till fast_ptr goes None.
+# Finally, our slow_ptr points to just before the node to be deleted, so go ahead and delete the node (kth from the end).
+
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        
+        if head == None:
+            return 
+        
+        if head.next == None and n == 1:
+            del head
+            return
+        
+        
+        dummy = ListNode(-1)
+        dummy.next = head 
+        fast_ptr, slow_ptr = dummy, dummy 
+        
+        for i in range(n + 1):
+            fast_ptr = fast_ptr.next
+        
+        while fast_ptr:
+            fast_ptr = fast_ptr.next
+            slow_ptr = slow_ptr.next
+        
+        temp = slow_ptr.next
+        slow_ptr.next = slow_ptr.next.next
+        del temp
+        return dummy.next 
+    
+        
+
 if __name__ == '__main__':
     head = Node(1)
     node2 = Node(2)
