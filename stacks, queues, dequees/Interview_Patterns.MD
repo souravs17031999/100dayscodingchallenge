@@ -1,7 +1,8 @@
 # TIPS :
 ## General :
-* Modify the basic structure and improve efficiency.
-* use combination of then ds along with given some other ds.
+* Modify the basic structure and improve efficiency.   
+* use combination of then ds along with given some other ds.   
+* Two common uses for stacks are: parsing (like in this problem) and tree or graph traversal (like depth-first traversal)   
 
 ## Stacks :
 * Whenever some range/span on array based question is asked and complexity is 0(N^2), then we need to use some kind of stack based technique.
