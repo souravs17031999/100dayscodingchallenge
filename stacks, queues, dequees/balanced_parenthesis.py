@@ -4,6 +4,16 @@
 # will be useful in popping the element from stack if there is matching parenthesis otherwise return False
 # Finally, if stack contains any element, then it means there is atleast some parenthesis which doesn't have closing parenthesis
 # so, we can return False, otherwise if stack is empty, then we have found all matching parenthesis, return True at this point
+# --------------------------------------------------------------------------------------------------------------------------------
+# Main Observation is that it is not only the fact that we have match open-close brackets but also we need to make sure that the order of brackets
+# are correct. That means "{" if comes in between the string, then it should match "}", hence recently seen pair of brackets should match with each other.
+# 
+# We iterate through our string, making sure that:
+# The following shows properties of data structure which shows why "Stack" is required here : 
+#
+# * each closer corresponds to the most recently seen, unclosed opener
+# * every opener and closer is in a pair
+# --------------------------------------------------------------------------------------------------------------------------------
 # TIME : 0(N), SPACE : 0(N), N IS LENGTH OF STRING 
 
 from collections import deque
