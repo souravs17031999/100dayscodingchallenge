@@ -42,6 +42,7 @@ at the just above function to direclty use in-built memoization for recursion fu
 ## Longest common subsequence (LCS) (when two strings are given or one string is given and another can be some function of other) :    
 > longest common substring, printing LCS, shortest common supersequence, printing shortest common supersequence, string edit (insertions/deletions/replacement), minimum insertions/deletions,  longest palindrome subsequence, minimum deletion for palindrome, minimum insertions for palindrome, longest repeating subsequence, sequence pattern matching (if string is subsequence of another string), longest increasing subsequence (which is itself a pattern)           
 ## Matrix chain multiplication (MCM) (when we have to apply operations one by one for all possible places/values) :    
-> palindrome partition, minimum and maximum value of expression, evaluate boolean expression, scrambled string, egg dropping puzzle.    
+> palindrome partition, minimum and maximum value of expression, evaluate boolean expression, scrambled string, egg dropping puzzle.         
+## Matrix type : Using direct recursive relations [usually some minimization/maximization of costs or anything like maybe dimensions]       
 ## DP on Trees :    
 > diameter of tree, max path sum from any node to any, max path sum from leaf to leaf, diameter of n-ary tree.   
