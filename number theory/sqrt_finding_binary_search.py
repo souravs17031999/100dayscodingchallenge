@@ -20,7 +20,7 @@ def sqrt_bin_search(n):
             ans = mid
         else:
             end = mid - 1
-    return mid
+    return ans
 
 # For some precision , for real numbers, we can also newton-raphson's method for computing it using iterative algorithm to converge
 # newton's raphson method is derived from drawing a ling as a tangent to the function f(x) at x = xi, then xi + 1 is the point at which this tangent cuts
