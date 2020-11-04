@@ -34,6 +34,11 @@ at the just above function to direclty use in-built memoization for recursion fu
 > if there are some items given to us and we have choice to either include it or not include it ? Also we have some constraints in form of some value   like bag in knapsack or some another value that we have to fill up to or add up to ?   
 ## Knapsack variations (we can't take one item more than once) :  subset sum problem, equal sum partition, count of subset sums, Minimum Subset Sum Difference, Count the number of subset with a given difference, Target sum.    
 ## Unbounded knapsack (we can take same item more than once) : rod cutting problem, coin change-I, coin change-II   
+> For knapsack (bounded) : we use max() operator with dp[i-1] in second term,    
+> For knapsack (unbounded) : we use max() opr with dp[i] in second term,  
+> For count type problems : use values of 1's, 0's, and fill using "+" opr 
+> For checking some constrain type probelms : use values of "T's and F's", fill using "OR" opr.  
+
 ## Longest common subsequence (LCS) (when two strings are given or one string is given and another can be some function of other) :    
 > longest common substring, printing LCS, shortest common supersequence, printing shortest common supersequence, string edit (insertions/deletions/replacement), minimum insertions/deletions,  longest palindrome subsequence, minimum deletion for palindrome, minimum insertions for palindrome, longest repeating subsequence, sequence pattern matching (if string is subsequence of another string).    
 ## Matrix chain multiplication (MCM) (when we have to apply operations one by one for all possible places/values) :    
