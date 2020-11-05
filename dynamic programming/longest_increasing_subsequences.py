@@ -32,6 +32,12 @@
 # After searching, low will contain one length greater than length of longest prefix
 # and then store the index i in M at new length found in low.
 # Then, check if this is the max length found so far, thus update the max length.
+# ------------------------------------------------------------------------------------------------------------
+# Simply put we have two cases : 
+# Always think about current case that if for now, we have this much elements in the array, so how do we exend this/shorten this/discard this if new element comes to this array ?
+# So, we have two cases : 
+# 1. If this new element is greater than current last element of LIS, then simply take it and extend our LIS.
+# 2. If above is not the case, then simply use binary search and find the element jus greater than the current end element, 
 # -------------------------------------------------------------------------------------------------------------
 
 # DP based solution :
@@ -49,32 +55,35 @@ def compute_longest_incr_subs(arr):
     return max(lis)
 
 # NlogN solution : 
-import math
-def compute_longest_incr(X):
-    n = len(X)
-    M = [0 for _ in range(n + 1)]
-    print(M)
-    L = 0
-    for i in range(0, n):
-        print(M)
-        low = 1
-        high = L
-        print(f"searching from {low} to {high}")
-        while low <= high:
-            mid = math.ceil(low + high) // 2
-            print(f"mid found is  {mid}")
-            if X[M[mid]] < X[i]:
-                low = mid + 1
-            else:
-                high = mid - 1
-        
-        newL = low
-        M[newL] = i
-        
-        if newL > L:
-            L = newL
-    
-    return L
+class Solution:
+    def binary_search(self,s,x):
+        low=0
+        high=len(s)-1
+        flag=1
+        while low<=high:
+              mid=(high+low)//2
+              if s[mid]==x:
+                 flag=0
+                 break
+              elif s[mid]<x:
+                  low=mid+1
+              else:
+                 high=mid-1
+        if flag:
+           s[low]=x
+        return s
+
+    def lengthOfLIS(self, nums: List[int]) -> int:
+         if not nums:
+            return 0
+         s=[]
+         s.append(nums[0])
+         for i in range(1,len(nums)):
+             if s[-1]<nums[i]:
+                s.append(nums[i])
+             else:
+                 s=self.binary_search(s,nums[i])
+         return len(s)
 
 
 if __name__ == '__main__':
