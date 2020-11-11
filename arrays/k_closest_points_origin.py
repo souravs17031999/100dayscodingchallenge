@@ -10,7 +10,8 @@
 # Can we do better ?
 # ----------------------------------------------------------------------------------------
 # Another approch as shown below to be use of Priority Queue which is really efficnet for these types
-# of applications will do it in (n + k*lg(N))
+# of applications will do it in 
+# TIME : 0(N + K*lg(N))
 
 import math
 def Euclidean(x, y):
@@ -18,13 +19,16 @@ def Euclidean(x, y):
 
 from heapq import heapify, heappop, heappush
 def compute_distance(arr, k):
-    distances = []
+    
+    distances = [(Euclidean(i[0], i[1]), i[0], i[1]) for i in points]
     heapify(distances)
-    for i in range(len(arr)):
-        heappush(distances, (Euclidean(arr[i][0], arr[i][1]), (arr[i])))
 
-    for i in range(k):
-        print(f"[{heappop(distances)[1]}]", end = " ")
+    output = []
+    for i in range(K):
+        curr = heappop(distance)
+        output.append([curr[1], curr[2]])
+        
+    return output
 
 
 if __name__ == '__main__':
