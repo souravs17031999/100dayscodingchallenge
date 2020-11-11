@@ -15,7 +15,7 @@
 
 import math
 def Euclidean(x, y):
-    return math.sqrt(x ** 2 + y ** 2)
+    return x * x + y * y    # math.sqrt(x ** 2 + y ** 2) we can also use sqrt(), but x * x + y * y is much much faster as this is constant operation 
 
 from heapq import heapify, heappop, heappush
 def compute_distance(arr, k):
