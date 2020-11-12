@@ -16,6 +16,8 @@
 # AS WE ARE PROCESSING EACH preorder ARRAY ELEMENT AND FOR EVERY ELEMENT, WE SEARCH IT IN inorder ARRAY,
 # TIME : 0(N^2), SPACE : 0(N).
 # CAN WE DO BETTER THAN THIS ?
+# Finding this index in inorder can also be done using binary search which will reduce the time complexity to 0(N * log(N)).
+# Can we do more better than this ?
 # ------------------------------------------------------------------------------------------------
 # We can observe the main bottleneck of the algorithm is finding this element of preorder in the inorder array.
 # So, we can simply maintain a hashmap (dict) which saves its index so that we already know what it's index is given
