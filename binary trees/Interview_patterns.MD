@@ -16,4 +16,7 @@
 ## Iterative approach :   
 * Usually this takes more space due to stack/queue/deque but this is pretty easy to think in terms of BFS approach (often coupled with None pointer delimiter logic) 
 * We can use a queue with BFS coupled with HashMap sorting based on keys efficient for vertical order/bottom order otherwise we can also implement our own MAP as python doesn;t
-support inbuild dict sorted.
+support inbuild dict sorted.    
+* Use None delimiter logic in BFS
+* Use horizonal distance logic marking by 0, -1, 1, -2, 2......
+* Use bidirectional BFS search idea    
