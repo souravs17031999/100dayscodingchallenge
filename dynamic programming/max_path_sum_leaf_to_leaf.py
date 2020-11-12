@@ -12,7 +12,7 @@ if temp.left == None and temp.right == None:
 
 ans = max(temp, left + right + root.data)
 
-res = max(ans, res)
+res = max(ans, temp)
 
 
 
