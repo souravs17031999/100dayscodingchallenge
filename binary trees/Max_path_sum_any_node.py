@@ -23,6 +23,10 @@
 #       /  \
 #      4    5
 # --------------------------------
+# IT CAN BE ALSO BE SOLVED USING DP IN 0(N) WHICH IS DISCUSSED IN DP SECTION
+# ----------------------------------
+
+
 class Node:
 
     def __init__(self, data):
