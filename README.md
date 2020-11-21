@@ -16,6 +16,8 @@
 > https://www.interviewcake.com/    
 > https://www.interviewbit.com/     
 
-* [Note] : Solutions are not only code ! It contains complete detailed explanation as if I am explaining it in the interview with lots of I/O examples, intutions about different approaches and space-time tradeoffs discussions.    
-      
+* [Note] : Solutions are not only code ! It contains complete detailed explanation as if I am explaining it in the interview with lots of I/O examples, intutions about different approaches and space-time tradeoffs discussions.      
+
+![Image of Yaktocat](cc.JPG)
+
 🌟 the repo for your next interview !  
