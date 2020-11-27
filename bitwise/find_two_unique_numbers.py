@@ -18,6 +18,9 @@
 # groups. Both x and y will go to different groups. In the following code, the rightmost set bit of xor2 is picked as it is easy to get rightmost
 # set bit of a number. If we do XOR of all those elements of array which have the corresponding bit set (or 1),
 # then we get the first unique number.
+# Let's say, some kth bit is set to 1 in Xor2, then we will partition the overall array such that first group will be having all their kth bits set to 1, other group will not
+# So, already other numbers were in pair, they will remain in pair and so, now in one of the group, if we apply XOR of all, then we will get either x or y.
+# Now, we can get the other number as overall XOR ^ (x or y) whatever has been found , will give other number.
 # -----------------------------------------------------------------------------------------------------------------------------------------------
 
 
