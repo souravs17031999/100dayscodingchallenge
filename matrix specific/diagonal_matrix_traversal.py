@@ -4,6 +4,18 @@
 # Now, we also know for any element M(i, j) -> if going upwards then the element should be M([i-1], [j + 1]) and opposite M([i + 1], [j - 1]) when going downwards through a diagonal.
 # so we need to keep a temp array to store the current elements of diagonals as a buffer and then keep transfering it to the original result array which is to be returned.
 # Time complexity : 0(M * N) and space complexity : 0(K) where K is min(N, M)
+#
+# Input:
+# [
+# [ 1, 2, 3 ],
+# [ 4, 5, 6 ],
+# [ 7, 8, 9 ]
+# ]
+#
+# Output:  [1,2,4,7,5,3,6,8,9]
+# ---------------------------------------------------------------------------------------------------
+
+
 def findDiagonalOrder(matrix):
         # intialize the result array
         result = []
