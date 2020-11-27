@@ -20,3 +20,5 @@ index of array => idx, so row_idx, col_idx = idx / cols, idx % cols, mat[row_idx
 ```
 Sum (i, j) -> (x, y) => P[x][y] + P[i - 1][j - 1] - P[i - 1][y] - P[x][j - 1]
 ```
+
+# Kadane's algo for 2-d matrix    
