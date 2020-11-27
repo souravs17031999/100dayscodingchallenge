@@ -6,7 +6,23 @@
 # In this way we go from first row -> last column -> last row -> first column in clockwise direction (spiral way)
 # Now, going for innner loops, from observation we can see that , k -> incremented, n-> decremented, m -> decremented, l-> incremented
 # TIME : 0(M*N) WHERE M, N -> ROWS, COLUMNS AND SPACE : 0(1)
-
+# WE CAN VISUALIZE THE ALGORITHM AS SHOWN BELOW USING FOUR POINTERS : 
+# ------------------------------------------------------------------------------------------------------------------------
+# 
+# TOP ->  [1, 2, 3, 4]
+#         [5, 6, 7, 8]
+#         [9, 2, 4, 1]
+# BOTTOM->[5, 4, 1, 1]
+#          ^        ^
+#         LEFT     RIGHT    
+#
+# TOP TO BOTTOM => CONTROLS ROWS
+# LEFT TO RIGHT => CONTROLS COLS
+# SO, LET'S SAY WE PRINT FIRST ROW, SO, WE RUN LOOP FROM LEFT TO RIGHT, AND SINCE TOP SHOULD BE CONSTANT, THEN PRINT A[TOP][COL], COL IS GOING FROM LEFT TO RIGHT.
+# SIMILARY, FOR OTHER THREE SEGMENTS, LAST COL, LAST ROW, THEN FINALLY FIRST ROW.
+# ALTERNATE WAY :  WE CAN RUN THE ABOVE LOGIC USING "DIR" VARIABLE WHICH CAN INCREMENT EVERY TIME WE RUN INSIDE WHILE LOOP, DIR = (DIR + 1) % 4
+# WHICH WILL BE CYCLIC AS WE WANT, 0, 1, 2, 3, 0, 1, 2, 3... AND ASSOCIATE ALL FOUR NUMBERS WITH RESPECTIVE ORDERING OR DIRECTION.
+# ------------------------------------------------------------------------------------------------------------------------
 # function to traverse the matrix in spiral way
 def matrix_traversal(mat):
     m, n = len(mat), len(mat[0])
