@@ -10,6 +10,13 @@
 # The final remainder of the modulus in the array will be the number when converted to decimal.
 # TIME : 0(N), SPACE : 0(1)
 
+# If we will convert all numbers into decimal form, then we will observe that all the numbers will be having either 3N or 3N + 1 form, and when we sum up all the bits (set)
+# at every pos, and then fill in count[64], we will getting the required number.
+# Wherever, sum will be 3N => bit will be 0, and wherever it will of 3N+1, it will be 1.
+# Bits which will be set in 3N number, will be now set in 3N + 1, which will then be set in 3N + 2 form number, so it goes in cyclic way.
+# After writing all numbers and verifying the above property, we will be able to proof that only 3N+1, will be having set bits others not.
+# -------------------------------------------------------------------------------------------------------------------------------------------------
+
 def find_unique(arr):
     # using fixed sized arrays
     count = [0 for _ in range(64)]
