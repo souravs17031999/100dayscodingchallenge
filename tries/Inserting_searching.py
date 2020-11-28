@@ -38,6 +38,9 @@
 #         self.data = data
 #         self.children = {}
 #         self.terminal = False
+#
+# SPACE OVERALL : O(ALPHABET_SIZE * key_length * N) where N is number of keys in Trie.
+
 
 class TrieNode:
 
