@@ -33,11 +33,61 @@
 # We can also see the progress saved in the text string also, as just before x, we have matched till first char that is "a", and that is also
 # the same information that precomputed table tell us that start the search from index "1", that is after "a", start from "b".
 # -------------------------------------------------------------------------------------------------------------
+# WE CAN NOW CLEALRY EXPLAIN THAT WHATEVER WE WERE DOING IN BRUTE FORCE - RECOMPARING AGAIN AND AGAIN - IS BEING NOW AVOIDED BY USING THE STORED
+# INFORMATION OF ALREADY LAST MATCHED PART OF STRING, SO WE NEED NOT RESET AND START FROM 0TH INDEX OF PATTERN IN CASE OF MISMISTACH, RATHER WE START
+# COMPARING FROM LAST MATCHED CHAR (AS STORED IN EXTRA ARRAY).
+# THIS IS ALSO CALLED SKIPPING COMPARISONS WHICH OVERALL REDUCES QUADRATIC COMPLEXITY TO LINEAR TIME COMPLEXITY.
+#
 # Keeping up with this, we can search the string in 0(M + N) where M is length of text.
+# TIME : 0(M + N)
 # Space : 0(N), N is length of pattern string.
 # ---------------------------------------------------------------------------------------------------------------
 
+# Preprocessing part
+def prepare_reset(pat):
 
+    # extra stored array
+    n = len(pat)
+    reset = [0] * (n + 1)
+
+    i, j = 0, -1
+    reset[0] = -1
+
+    while i < n:
+
+        while j >= 0 and pat[i] != pat[j]:
+            j = reset[j]
+
+        i += 1
+        j += 1
+        reset[i] = j
+
+    return reset
+
+
+# matching part
+
+def KMPSearch(pat, txt):
+
+    reset = prepare_reset(pat)
+
+    i, j = 0, 0
+
+    n = len(txt)
+
+    found_length = len(pat)
+
+    while i < n:
+
+        while j >= 0 and txt[i] != pat[j]:
+            j = reset[j]
+
+        i += 1
+        j += 1
+
+        if j == found_length:
+            print("pattern found at ", i - j)
+            j = reset[j]
 
 txt = "ABABDABACDABABCABAB"
 pat = "ABABCABAB"
