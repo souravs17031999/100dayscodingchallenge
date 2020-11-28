@@ -10,6 +10,8 @@
 # Each of these 27 sets of choices is equally probable.
 # But how many possible outcomes do we have? , know the answer is 3! = 6
 # Which is not evenly divisible by 27 hence not euqally probable.
+# OR we can also simply take a given arr/list, and keep choosing the random element and pop it from the array, and append the randomly chosen element to the new array.
+# The above approaches are in 0(N^2).
 # ---------------------------------------------------------------------------------------------------------------------------------
 # Better approach ?
 # the logic is to simply randomly select a index from i to last element where i will vary from 0 to length of list,
