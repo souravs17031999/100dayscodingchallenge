@@ -1,7 +1,57 @@
 # program to find pattern in a string commonly called as string matching algorithm but this only covers naive algorithm (inefficient)
 
-
 # IDEA: logic is to keep two pointers one at text and one at pattern , increment both when a char is matched otherwise only increment text pointer and put pattern pointer back at 0 and if pattern pointer completely exhausts, then print the starting index of text pointer from where it matched.
+# TIME : 0(M * (M - N - 1)), M IS TEXT LENGTH, N IS PATTERN LENGTH, GENERALISED : 0(M * N)
+# SPACE : 0(1)
+# FOLLOWING IS THE IDEA SHOWN IN THE CODE : 
+
+# # TEXT :      A A B A A C A A D A A B A A B A 
+#               i
+
+# # PATTERN :   A A B A
+#               j
+    
+# A A B A A C A A D A A B A A B A 
+#   i
+
+# A A B A
+#   j
+    
+# A A B A A C A A D A A B A A B A 
+#     i
+
+# A A B A
+#     j
+
+# A A B A A C A A D A A B A A B A 
+#       i
+#                                            => complete match , print the index, then keep on moving for showing not match idea 
+# A A B A
+#       j    
+
+# Resetting pointer j to 0, and i to now second window 
+
+# A A B A A C A A D A A B A A B A 
+#   i
+
+# A A B A
+# j
+
+# A A B A A C A A D A A B A A B A 
+#     i
+#                                           => not matched, that means the current window is not useful, hence we discard the entire window, point i to next window, but reset j to 0.
+# A A B A
+#   j
+    
+    
+# A A B A A C A A D A A B A A B A 
+#     i
+
+# A A B A
+#  j
+#
+# AS WE CAN SEE, WE ARE RECOMPARING THE PATTERN WITH REPEATED OVERLAPPING WINDOWS, THIS ACCUNTS FOR QUADRATIC RUN TIME.
+# ------------------------------------------------------------------------------------------------------------------------------------------------------
 
 # function for searching the pattern wherever , any number of times occured , also accounts for overlapping substrings
 def search(pattern, text):
