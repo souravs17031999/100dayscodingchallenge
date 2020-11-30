@@ -1,4 +1,4 @@
-# Program for computing count of all inversions of array - inversions are all such pairs (i, j) s.t. i < j and arr[i] < arr[j]
+# Program for computing count of all inversions of array - inversions are all such pairs (i, j) s.t. i < j and arr[i] > arr[j]
 # IDEA: Logic is to compute on idea of merge sort algorithm, we can observe merge sort inherently compares both the subarrays divided recursively,
 # and so, we can count of inversion while merging the arrays
 # What we do is we recursively try to divide the array until only one element is left, where inversion is 0 (base case), and then merge it and count the
