@@ -12,6 +12,9 @@
 # Output:  Following words of dictionary are present
 #          GEEKS
 #          QUIZ
+#
+#
+# TIME : 0((M * N * 8^(M*N)), SPACE : 0(M * N)
 # --------------------------------------------------------------------------------------------------------------------------
 # We are going to use backtracking to solve this problem.
 # We know that at every point we have 8 possible cell moves choices, so we preprocess them already :
