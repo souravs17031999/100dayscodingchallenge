@@ -11,6 +11,23 @@
 # So, we can insert first k + 1 elements in min heap, then pop out each element at a time and then insert next element from remaining element
 # from the array.
 # TIME : 0(N*lg(K)), SPACE : 0(K)
+#
+# LET'S SAY WE HAVE FOLLOWING ARR WITH K = 3, 
+#
+# ARR:    [6, 5, 3, 2, 8, 10, 9], K = 3
+# SO, it means that every element can be atmost 3 positions distant from its current location in either directions. 
+#
+#so,      6   6   ...... 
+#         5   5     
+#         3   3
+#         2   2   .......
+#             8
+#
+#
+# As we can see first index can span through 4 possiblities : 6, 5, 3, 2 and similary second index has 5 possiblities of elemnt : 6, 5, 3, 2, 8 and so on for other index.
+# So, we now have set of possibliite and now how to get correct of them that is minimum of them because we are sorting in ascending order ?
+# We can use a binary min-heap that can actually get us min in 0(1) time and one more important thing to consider is that space for this binary heap is fixed = k.
+# ------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 from heapq import heappush, heappop, heapify
 
