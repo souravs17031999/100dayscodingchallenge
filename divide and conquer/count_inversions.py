@@ -1,11 +1,23 @@
 # Program for computing count of all inversions of array - inversions are all such pairs (i, j) s.t. i < j and arr[i] > arr[j]
-# IDEA: Logic is to compute on idea of merge sort algorithm, we can observe merge sort inherently compares both the subarrays divided recursively,
+# IDEA: 
+# Naive solution will be to use simple two loops, and that would take 0(N^2) time. 
+# can we do better than this ?
+# Logic is to compute on idea of merge sort algorithm, we can observe merge sort inherently compares both the subarrays divided recursively,
 # and so, we can count of inversion while merging the arrays
 # What we do is we recursively try to divide the array until only one element is left, where inversion is 0 (base case), and then merge it and count the
 # inversions while merging.
 # In this way, we are dividing, conquering and then combining our solutions to the overall problem.
 # TIME : 0(n*lg(n)), SPACE : 0(n)
-
+         
+#              i               mid                  j
+#         first_half                           second_half
+#        [a1, a2, a3, a4, a5.....]             [b1, b2, b3, b4, b5......]
+#                                                           
+#        |_____|           
+#          ||
+#      (mid - i) inversions will be there as after a2, that is a3, a4, a5... will be greater than b2.
+#
+#
 
 # function for merging subrouting and counting inversions
 def merge(arr, left, mid, right):
