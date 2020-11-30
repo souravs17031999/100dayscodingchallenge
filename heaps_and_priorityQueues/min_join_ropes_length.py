@@ -6,6 +6,7 @@
 # So, everytime we extract two minimum from the min heap and then add them to the cost so far, and then push back the the
 # popped element cost again in the heap as we also want to keep track of old cost to be added in the next iteration.
 # This goes on till we have atleast two elements in the heap.
+# The idea is to use greedy approach to minimise the overall cost so at eveyr point, we get two minimum ropes to be added to the overall rope and update the cost along with it.
 # TIME : 0(N*lg(N)), SPACE : 0(N).
 
 
