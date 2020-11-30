@@ -15,7 +15,7 @@ going for one by one would take 0(N*log(N)) and it's inefficient.
 ```ele = [(count[i], i) for i in range(len(count)) if count[i]]```    
 ```heapify(ele)```    
 > For max heaps (upper was using min heaps):       
-```ele = [(count[i], i) for i in range(len(count)) if count[i]]```    
+```ele = [-(count[i], i) for i in range(len(count)) if count[i]]```    
 ```heapify(ele)```
 ```    
 * If using Priority Queue and update is required in value, since there is no function for "increase_key" operation,
