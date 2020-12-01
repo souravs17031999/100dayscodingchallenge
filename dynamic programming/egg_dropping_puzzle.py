@@ -41,6 +41,22 @@
 #                    break (1, 0)   (2, 1)  not break   break (1,1) (2, 0) not break
 #
 #
+# Overall, this problem requires project estimation approach like we have to gurantee that work will be completed within a critical number of days "c".
+# So, if we want to guarantee something, then we need to take "Best of all worsts" to get threshold kind of thing so that in worst scenario also, we get the optimal cost.
+#
+#                                     min : 5
+# 
+#                                max:  5       10      11
+#
+#                                    [4, 5]  [3, 10] [7, 11]     : similar analogy for floors, eggs , we check for every floor one by one , if that breaks or if it survives
+#                                     e1     e2    e3
+#                                       \    |     /                                 
+#                                          Manager 
+#
+#
+#
+# ------------------------------------------------------------------------------------------------------------------------------------------------
+
 # simple recursion
 
 import sys
