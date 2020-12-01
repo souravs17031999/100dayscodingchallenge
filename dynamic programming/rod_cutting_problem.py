@@ -34,6 +34,54 @@
 #    /
 #  /
 # CR(0)
+#
+#
+# WE CAN VISUALIZE WHAT SUBPROBLEMS WE ARE SOLVING AND HOW OPTIMAL SUBTRUCTURE WILL HELP US IN FINDING OVERALL SOLUTION : 
+#  
+#                     SEGMENT: 0 1 2 3 4  5  6  7  8     
+# LET'S SAY PRICE/PROFIT ARR :   1 5 8 9 10 17 17 20 
+# 
+# SO, LIKE AT EVERY POINT, STARTING FROM 0TH INDEX OF 0 LENGTH OF ROD : CAN WE DO ANYTHING NO, SO, FOR 0 LENGTH , IT'S OVERALL PROFIT IS 0
+# NOW, FOR 
+#               /   1 [1]
+#             L           => MAX(1, 0) => 1
+#               \   0 
+#
+# SIMILARLY, FOR L = 2
+#                             1 + 1   [2] 
+#                          /                => MAX(2, 5) = 5   , NOW HERE WHEN WE CHECK FOR BEST COST OF CUTTING ROD OF L = 1, THEN WE ALREADY SAVE THE BEST OPTIMUM = 1 THERE 
+#                        L   ---  2 [5]
+#
+#
+# SIMILARLY, FOR L = 3, 
+#
+#
+#                                  3 [8]
+#                               /  
+#                            3  ----  1 [1] + 2 [5] => MAX(8, 6, 6) => 8 , AND ALSO HERE WHEN WE WANT TO KNOW THE OPTIMUM FOR SMALLER ROD LENGTHS, WE DONOT WANT TO COMPUTE IT AGAIN, 
+#                                                                          BUT RATHER WE SAVED IT
+#                               \   
+#                                   2 [5] + 1 [1]
+#
+# SIMILARLY, L = 4, 
+#
+#
+#
+#                                        3[8] + 1[1]  
+#
+#                                              4 [9]      
+#                                          |  /
+#                                      L = 4 ----- 1[1] + 3[8]  =>  MAX(9, 9, 9, 10) => 10 AND SAME HERE CASE WITH RECOMPUTION, WE HAVE ALREADY SAVED BEST OPTIMUM FOR SMALLER ONES
+#                                            \ 
+#                                                2[5] + 2[5]
+#
+#                                          
+#
+# SIMILALRY, WE CAN GO FOR MORE LENGTHS OF ROD SEGMENTS AND SEE HOW WE ARE AVOIDING RECOMPUTATION OF SMALLER SUBPROBLEMS AND ALSO HOW SMALLER SUBPROBLEMS ARE LEADING US TO 
+# OVERALL OPTIMAL SOLUTION.
+#
+#
+# -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 def compute_max_value(val, wt, W, n):
 
