@@ -39,6 +39,22 @@
 # and also the cost for multiplying both answers got above.
 # This cost is manually obtained through observation that it will be simply, arr[i - 1] * arr[k] * arr[j].
 # So, we add up all these and get the minimum for all these possiblities.
+# -------------------------------------------------------------------------------------------------------
+#
+#
+#
+#                         L1+R1+M1    L2+M2+R2   L3+M3+R3  L4+M4+R4          MIN(L1+R1+M1  ,  L2+M2+R2 ,  L3+M3+R3 , L4+M4+R4)
+#
+#                           +M1           +M2     +M3      +M4
+#                           L1/R1        L2/R2   L3/R3    L4/R4     
+#                           A/BCDE      AB/CDE   ABC/DE  ABCD/E  
+#                     
+#                               |        |        |       |        
+#                           
+#                           A       B       C       D        E 
+#
+# ---------------------------------------------------------------------------------------------------------
+
 
 import sys
 def compute_multiple_recr(arr, i, j):
