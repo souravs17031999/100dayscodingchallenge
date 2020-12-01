@@ -8,9 +8,22 @@
 # otherwise we can break it into subproblems, that is from i...k, and then k + 1....j, and add the cost for these two calculated answer which is "1".
 # and we take minimum of all these partitions.
 # --------------------------------------------------------------------------------------------------------
+# VISUALIZATIONS :
+#                              2          3         3       4          2             => min(2, 3, 3, 4, 2) = 2     => either   [ a|bccb|c ]
+#                  
+#                             0+1+1      1+1+1     2+0+1   2+1+1     1+0+1
+#                                
+#                              0  1      1  1     2   0   2   1     1   0
+#                              a/bccbc  ab/ccbc  abc/cbc abcc/bc  abccb/c
+#                                        
+#                                  |      |     |      |     |
+#                                a     b     c      c     b     c
+#
+#
 
 # SIMPLE RECURSION ---------------------------------------------------------------------------------------
 # TIME : EXPONENTIAL
+
 
 import sys
 def is_palindrome(s):
