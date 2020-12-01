@@ -13,7 +13,9 @@
  will broken down to converge to base cases.      
 * Use python dict for memory efficient TOP DOWN Approach (or maybe use Matrix for dimensions described by input values in function which are changing)   
 * Use   
-```  
+```    
+from functools import lru_cache     
+
 @lru_cache()
    def fun():
      fun()
