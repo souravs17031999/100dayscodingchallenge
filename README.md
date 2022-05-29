@@ -60,6 +60,7 @@ These are the languages which have most active community support and most likely
 ## System Design resources :
 
 > [Complete list of topics/packages](https://github.com/donnemartin/system-design-primer)
+> [Curated list of topics](https://github.com/shashank88/system_design)
 > [Uber engineering](https://eng.uber.com/)
 > [AirBnB engineering](https://medium.com/airbnb-engineering)
 > [Meta/facebook engineering](https://engineering.fb.com/)
