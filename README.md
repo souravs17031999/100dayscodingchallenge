@@ -57,4 +57,40 @@ These are the languages which have most active community support and most likely
 * Earlier it was only for motivation for getting started, now it has gone past 100 days and going for more and more problems.     
 * Questions are almost all of taken from actual Interview problems and sources include but not limited to geeksforgeeks, leetcode, interviewbit.com, codeforces, codingBlocks etc..
 
+## System Design resources :
+
+> [Complete list of topics/packages](https://github.com/donnemartin/system-design-primer)
+> [Uber engineering](https://eng.uber.com/)
+> [AirBnB engineering](https://medium.com/airbnb-engineering)
+> [Meta/facebook engineering](https://engineering.fb.com/)
+> [Google engineering](https://developers.googleblog.com/)
+> [Quora engineering](https://quoraengineering.quora.com/)
+> [Databricks engineering](https://databricks.com/blog/category/engineering)
+> [Netflix engineering](https://netflixtechblog.medium.com/)
+> [LinkedIn engineering](https://engineering.linkedin.com/)
+> [Amazon AWS engineering](https://aws.amazon.com/blogs/architecture/)
+> [PinInterest engineering](https://medium.com/@Pinterest_Engineering)
+> [Lyft engineering](https://eng.lyft.com/)
+> [DropBox engineering](https://dropbox.tech/)
+> [Instagram engineering](https://instagram-engineering.com/)
+> [Flickr engineering](https://code.flickr.net/)
+> [Yelp engineering](https://engineeringblog.yelp.com/)
+> [Microsoft engineering](https://devblogs.microsoft.com/engineering-at-microsoft/category/engineering-at-microsoft/)
+> [Twitter engineering](https://blog.twitter.com/engineering/en_us)
+> [Github engineering](https://github.blog/category/engineering/)
+> [Adobe engineering](https://medium.com/adobetech)
+> [Spotify engineering](https://engineering.atspotify.com/)
+> [SoundCloud engineering](https://developers.soundcloud.com/blog/)
+> [Criteo engineering](https://medium.com/criteo-labs)
+
+
+## System design videos : 
+
+> https://www.youtube.com/c/ArpitBhayani/videos
+> https://www.youtube.com/c/sudoCODE
+> https://www.youtube.com/c/codeKarle
+> https://www.youtube.com/c/GauravSensei
+> https://www.youtube.com/c/HusseinNasser-software-engineering/videos
+> https://www.youtube.com/c/RachitJain
+
 🌟 the repo for your next interview !  
