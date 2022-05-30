@@ -9,6 +9,7 @@ For beginners you may choose either of them :
 * _Python_
 * _JavaScript_ 
 * _C/C++_   
+* _Java_  
 These are the languages which have most active community support and most likely of interviewers also knowing these.
 
 ### Good resources    
@@ -32,7 +33,7 @@ These are the languages which have most active community support and most likely
 > https://www.interviewcake.com/    
 > https://www.interviewbit.com/     
 > https://projecteuler.net/    
-> https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU
+> https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU  
 > https://cses.fi/problemset/
 
 ## For solutions / better explanations / video solutions : 
