@@ -32,6 +32,8 @@ These are the languages which have most active community support and most likely
 > https://www.interviewcake.com/    
 > https://www.interviewbit.com/     
 > https://projecteuler.net/    
+> https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU
+> https://cses.fi/problemset/
 
 ## For solutions / better explanations / video solutions : 
 
