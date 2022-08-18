@@ -21,7 +21,7 @@ enum year{Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec};
 // we can also initialize values from user defined constants : 
 // enum week{Mon = 1, Tue, Wed, Thur, Fri, Sat, Sun}; this will start counting from 1..
 
-// test 
+
 
 int main(void){
     enum week day;
