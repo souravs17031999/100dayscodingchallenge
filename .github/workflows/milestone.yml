@@ -11,13 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2.3.4
+        uses: actions/checkout@v3
         with:
-          token: ${{ secrets.CODE_GITHUB_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Milestone Documentation Generator
         uses: ory/milestone-action@v0
         with:
-          GITHUB_TOKEN: ${{ secrets.CODE_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           outputFile: milestones.md
       - name: Commit Milestone Documentation
         uses: EndBug/add-and-commit@v4.4.0
@@ -26,4 +26,4 @@ jobs:
           author_name: souravs17031999
           author_email: 'souravs_1999@rediffmail.com'
         env:
-          GITHUB_TOKEN: ${{ secrets.CODE_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
