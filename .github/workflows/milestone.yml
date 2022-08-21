@@ -25,6 +25,5 @@ jobs:
           message: 'autogen(docs): update milestone document'
           author_name: souravs17031999
           author_email: 'souravs_1999@rediffmail.com'
-          new_branch: github-milestone-action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
