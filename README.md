@@ -87,6 +87,8 @@ These are the languages which have most active community support and most likely
 > [Spotify engineering](https://engineering.atspotify.com/)
 > [SoundCloud engineering](https://developers.soundcloud.com/blog/)
 > [Criteo engineering](https://medium.com/criteo-labs)
+> [Google SRE Book](https://sre.google/sre-book/table-of-contents/)
+> [Netflix Rate limiter performance load](https://netflixtechblog.medium.com/performance-under-load-3e6fa9a60581)
 
 
 ## System design videos : 
