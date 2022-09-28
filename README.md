@@ -36,6 +36,10 @@ These are the languages which have most active community support and most likely
 > https://www.teamblind.com/post/New-Year-Gift---Curated-List-of-Top-75-LeetCode-Questions-to-Save-Your-Time-OaM1orEU  
 > https://cses.fi/problemset/
 
+## curated list of challenges : 
+> https://leetcode.com/discuss/general-discussion/460599/blind-75-leetcode-questions
+> https://www.techinterviewhandbook.org/grind75
+
 ## For solutions / better explanations / video solutions : 
 
 > [TECH DOSE](https://www.youtube.com/channel/UCnxhETjJtTPs37hOZ7vQ88g)    
